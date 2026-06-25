@@ -664,10 +664,11 @@
     .hiw-tab-title { font-family:var(--font-h); font-weight:700; font-size:.9375rem; color:var(--text); line-height:1.25; }
     .hiw-tab.active .hiw-tab-title { color:var(--purple); }
 
-    /* Progress bar inside each tab */
-    .hiw-progress-bar { height:3px; background:rgba(67,44,151,.08); border-radius:3px; overflow:hidden; }
+    /* Progress bar — sits below each tab card, outside overflow:hidden */
+    .hiw-tab-wrap { display:flex; flex-direction:column; gap:0; }
+    .hiw-progress-bar { height:4px; background:rgba(67,44,151,.12); border-radius:0 0 var(--r-lg) var(--r-lg); overflow:hidden; }
     .hiw-progress-fill {
-      height:100%; width:0%; border-radius:3px;
+      height:100%; width:0%;
       background:linear-gradient(90deg,var(--purple),var(--blue));
     }
     .hiw-progress-fill.running {
@@ -1603,34 +1604,40 @@
     <!-- Step selector tabs -->
     <div class="hiw-tabs" id="hiwTabs">
 
-      <div class="hiw-tab active" data-hiw="0">
-        <div class="hiw-tab-inner">
-          <div class="hiw-tab-num">01</div>
-          <div>
-            <div class="hiw-tab-time">Set up in 1 day</div>
-            <div class="hiw-tab-title">Upload your messages</div>
+      <div class="hiw-tab-wrap">
+        <div class="hiw-tab active" data-hiw="0">
+          <div class="hiw-tab-inner">
+            <div class="hiw-tab-num">01</div>
+            <div>
+              <div class="hiw-tab-time">Set up in 1 day</div>
+              <div class="hiw-tab-title">Upload your messages</div>
+            </div>
           </div>
         </div>
         <div class="hiw-progress-bar"><div class="hiw-progress-fill" id="hiwProg0"></div></div>
       </div>
 
-      <div class="hiw-tab" data-hiw="1">
-        <div class="hiw-tab-inner">
-          <div class="hiw-tab-num">02</div>
-          <div>
-            <div class="hiw-tab-time">Results in 24 hours</div>
-            <div class="hiw-tab-title">Launch your experiment</div>
+      <div class="hiw-tab-wrap">
+        <div class="hiw-tab" data-hiw="1">
+          <div class="hiw-tab-inner">
+            <div class="hiw-tab-num">02</div>
+            <div>
+              <div class="hiw-tab-time">Results in 24 hours</div>
+              <div class="hiw-tab-title">Launch your experiment</div>
+            </div>
           </div>
         </div>
         <div class="hiw-progress-bar"><div class="hiw-progress-fill" id="hiwProg1"></div></div>
       </div>
 
-      <div class="hiw-tab" data-hiw="2">
-        <div class="hiw-tab-inner">
-          <div class="hiw-tab-num">03</div>
-          <div>
-            <div class="hiw-tab-time">Debrief in 1–2 days</div>
-            <div class="hiw-tab-title">Get recommendations</div>
+      <div class="hiw-tab-wrap">
+        <div class="hiw-tab" data-hiw="2">
+          <div class="hiw-tab-inner">
+            <div class="hiw-tab-num">03</div>
+            <div>
+              <div class="hiw-tab-time">Debrief in 1–2 days</div>
+              <div class="hiw-tab-title">Get recommendations</div>
+            </div>
           </div>
         </div>
         <div class="hiw-progress-bar"><div class="hiw-progress-fill" id="hiwProg2"></div></div>
