@@ -2064,14 +2064,17 @@
     function switchHIW(idx) {
       // Tabs
       document.querySelectorAll('.hiw-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
-      // Progress bars: reset all, start active
+      // Progress bars: reset all, animate active
       document.querySelectorAll('.hiw-progress-fill').forEach((f,i) => {
-        f.style.transition = 'none'; f.style.width = i < idx ? '100%' : '0%';
-        f.classList.remove('running');
+        f.style.transition = 'none';
+        f.style.width = i < idx ? '100%' : '0%';
       });
       requestAnimationFrame(() => requestAnimationFrame(() => {
         const fill = document.getElementById('hiwProg'+idx);
-        if (fill) { fill.classList.add('running'); }
+        if (fill) {
+          fill.style.transition = 'width 10s linear';
+          fill.style.width = '100%';
+        }
       }));
       // Panels
       document.querySelectorAll('.hiw-pane').forEach((p,i) => p.classList.toggle('active', i===idx));
