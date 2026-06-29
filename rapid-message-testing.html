@@ -254,30 +254,39 @@
   width: 100%;
   display: block;
 }
-/* Scrolling screenshot treatment */
-.screenshot-scroll-wrap {
-  height: 440px;
+/* Screenshot carousel */
+.screenshot-carousel {
   overflow: hidden;
-  position: relative;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-}
-.screenshot-scroll-track {
-  display: flex;
-  flex-direction: column;
-  animation: screenshotScroll 40s linear infinite;
-}
-.screenshot-scroll-track img {
   width: 100%;
+}
+.carousel-track {
+  display: flex;
+  transition: transform .55s cubic-bezier(.4,0,.2,1);
+}
+.carousel-track img {
+  width: 100%;
+  flex-shrink: 0;
   display: block;
-  border-bottom: 1px solid rgba(67,44,151,.07);
 }
-.screenshot-scroll-wrap:hover .screenshot-scroll-track {
-  animation-play-state: paused;
+.carousel-dots {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
-@keyframes screenshotScroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(67,44,151,.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background .2s, transform .2s;
+}
+.carousel-dot.active {
+  background: var(--purple);
+  transform: scale(1.3);
 }
 /* Floating result badge */
 .hero-badge {
@@ -1090,10 +1099,6 @@
 
       <!-- RIGHT: product visual -->
       <div class="hero-visual">
-        <div class="hero-chip-float">
-          <div class="hcf-label">Results ready in</div>
-          <div class="hcf-val">24 hours</div>
-        </div>
         <div class="product-frame">
           <div class="product-frame-bar">
             <div class="frame-dots">
@@ -1103,25 +1108,18 @@
             </div>
             <div class="frame-url">app.growprogress.ai</div>
           </div>
-          <div class="screenshot-scroll-wrap">
-            <div class="screenshot-scroll-track">
-              <img src="rmt-screenshot-1.png" alt="RMT results dashboard">
-              <img src="rmt-screenshot-2.png" alt="Subgroup performance waterfall">
-              <img src="rmt-screenshot-3.png" alt="Demographic breakdown">
-              <!-- Duplicate for seamless loop -->
+          <div class="screenshot-carousel">
+            <div class="carousel-track" id="carouselTrack">
               <img src="rmt-screenshot-1.png" alt="RMT results dashboard">
               <img src="rmt-screenshot-2.png" alt="Subgroup performance waterfall">
               <img src="rmt-screenshot-3.png" alt="Demographic breakdown">
             </div>
           </div>
         </div>
-        <div class="hero-badge">
-          <div class="badge-top">
-            <span class="badge-pulse"></span>
-            <span class="badge-status">Statistically significant</span>
-          </div>
-          <div class="badge-num">+200<span>%</span></div>
-          <div class="badge-lbl">avg message effectiveness lift</div>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="rmtSlide(0)" aria-label="Slide 1"></button>
+          <button class="carousel-dot" onclick="rmtSlide(1)" aria-label="Slide 2"></button>
+          <button class="carousel-dot" onclick="rmtSlide(2)" aria-label="Slide 3"></button>
         </div>
       </div>
 
@@ -1437,6 +1435,16 @@
 </footer>
 
 <script>
+  // Screenshot carousel
+  let rmtCurrent = 0;
+  const rmtDots = document.querySelectorAll('.carousel-dot');
+  function rmtSlide(n) {
+    rmtCurrent = n;
+    document.getElementById('carouselTrack').style.transform = `translateX(-${n * 100}%)`;
+    rmtDots.forEach((d, i) => d.classList.toggle('active', i === n));
+  }
+  setInterval(() => rmtSlide((rmtCurrent + 1) % 3), 4500);
+
   // Nav scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), {passive:true});
