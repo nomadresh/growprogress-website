@@ -463,45 +463,6 @@
       overflow:hidden;
       z-index:0;
     }
-    .hero-scene {
-      position:absolute; inset:0;
-      opacity:0; transition:opacity 1.4s ease;
-      background-size:cover; background-position:center;
-    }
-    .hero-scene.active { opacity:1; }
-    .scene-0 { background-color:#1a2d50; background-image:url('photo-npf.png'); background-size:cover; background-position:center; background-blend-mode:luminosity; }
-    .scene-1 { background-color:#0d2f1e; background-image:url('photo-hands.png'); background-size:cover; background-position:center; background-blend-mode:luminosity; }
-    .scene-2 { background-color:#1a1a40; background-image:url('photo-politics.png'); background-size:cover; background-position:center; background-blend-mode:luminosity; }
-    .scene-3 { background-color:#2a1200; background-image:url('photo-crowd.png'); background-size:cover; background-position:center; background-blend-mode:luminosity; }
-    .hero-scene::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse 70% 90% at 15% 25%, rgba(255,255,255,.06) 0%, transparent 65%);
-    }
-    .hero-scene-overlay {
-      position:absolute; inset:0; z-index:1;
-      background:linear-gradient(to right,
-        rgba(10,5,24,.25) 0%,
-        rgba(15,8,32,.45) 35%,
-        rgba(22,12,40,.72) 62%,
-        rgba(26,16,48,.93) 82%,
-        rgba(26,16,48,1) 100%);
-    }
-    .hero-scene-label {
-      position:absolute; bottom:2rem; left:2rem; z-index:3;
-      display:flex; align-items:center; gap:.5rem;
-    }
-    .scene-label-text {
-      font-family:var(--font-h); font-size:.65rem; font-weight:700;
-      letter-spacing:.1em; text-transform:uppercase;
-      color:rgba(255,255,255,.4);
-    }
-    .hero-scene-dots { display:flex; gap:.5rem; }
-    .scene-dot {
-      height:4px; width:16px; border-radius:4px;
-      background:rgba(255,255,255,.2); cursor:pointer;
-      transition:all .4s cubic-bezier(.22,1,.36,1);
-    }
-    .scene-dot.active { width:28px; background:var(--blue); }
 
     /* ─────────────────────────────────────────
        LOGO MARQUEE
@@ -1333,23 +1294,6 @@
   <div class="hero-orb orb-2"></div>
   <div class="hero-grid"></div>
 
-  <!-- Photo background, fills left 54% of hero, fades right into dark gradient -->
-  <div class="hero-photo-half">
-    <div class="hero-scene scene-0 active" id="hero-scene-0"></div>
-    <div class="hero-scene scene-1" id="hero-scene-1"></div>
-    <div class="hero-scene scene-2" id="hero-scene-2"></div>
-    <div class="hero-scene scene-3" id="hero-scene-3"></div>
-    <div class="hero-scene-overlay"></div>
-    <div class="hero-scene-label">
-      <span class="scene-label-text" id="scene-label-text">Nonprofits</span>
-      <div class="hero-scene-dots">
-        <div class="scene-dot active" data-scene="0"></div>
-        <div class="scene-dot" data-scene="1"></div>
-        <div class="scene-dot" data-scene="2"></div>
-        <div class="scene-dot" data-scene="3"></div>
-      </div>
-    </div>
-  </div>
 
   <div class="container">
     <div class="hero-layout">
@@ -1987,11 +1931,6 @@
           t.classList.remove('active');
         }
       });
-      // Sync left image panel
-      document.querySelectorAll('.hero-scene').forEach((s,i) => s.classList.toggle('active', i === idx));
-      document.querySelectorAll('.scene-dot').forEach((d,i) => d.classList.toggle('active', i === idx));
-      const labelEl = document.getElementById('scene-label-text');
-      if (labelEl) labelEl.textContent = sectors[idx].tab;
       content.classList.remove('fading');
       animateHeroBars();
     }, 320);
@@ -1999,9 +1938,6 @@
 
   document.querySelectorAll('.sector-tab').forEach((tab, i) => {
     tab.addEventListener('click', () => { clearInterval(heroTimer); switchHeroSector(i); heroTimer = setInterval(() => switchHeroSector((heroCurrent+1) % sectors.length), 6000); });
-  });
-  document.querySelectorAll('.scene-dot').forEach((dot, i) => {
-    dot.addEventListener('click', () => { clearInterval(heroTimer); switchHeroSector(i); heroTimer = setInterval(() => switchHeroSector((heroCurrent+1) % sectors.length), 6000); });
   });
   setTimeout(animateHeroBars, 700);
   // Seed initial progress bar
