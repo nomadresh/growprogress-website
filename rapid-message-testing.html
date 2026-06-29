@@ -154,12 +154,13 @@
 .hero-grid {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 3rem;
   position: relative;
   z-index: 1;
   width: 100%;
 }
-.hero-copy { max-width: 620px; }
+.hero-copy { max-width: 620px; text-align: center; }
 .hero-eyebrow { margin-bottom: 1.5rem; }
 .hero h1 {
   font-family: var(--font-h);
@@ -178,7 +179,7 @@
   margin-bottom: 2.25rem;
   max-width: 460px;
 }
-.hero-ctas { display: flex; gap: .875rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-ctas { display: flex; gap: .875rem; flex-wrap: wrap; margin-bottom: 2.5rem; justify-content: center; }
 /* Trust logos inline */
 .hero-trust { display: flex; flex-direction: column; gap: .625rem; }
 .hero-trust-label {
@@ -202,6 +203,7 @@
 .hero-visual {
   position: relative;
   width: 100%;
+  max-width: 728px;
 }
 /* Browser frame */
 .product-frame {
