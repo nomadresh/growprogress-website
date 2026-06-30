@@ -141,7 +141,7 @@
     .hero-trust-logos img:hover { filter:grayscale(60%) opacity(60%); }
     .hero-visual { position:relative; }
     .hero-visual::before { content:''; position:absolute; inset:-10%; background:radial-gradient(ellipse,rgba(67,44,151,.1) 0%,transparent 65%); z-index:0; }
-    .product-frame { position:relative; z-index:1; background:#fff; border-radius:1.25rem; overflow:hidden; box-shadow:0 0 0 1px rgba(67,44,151,.1),0 4px 12px rgba(31,22,40,.08),0 24px 60px rgba(31,22,40,.14); animation:heroFloat 6s ease-in-out infinite; }
+    .product-frame { position:relative; z-index:1; background:#fff; border-radius:1.25rem; overflow:hidden; box-shadow:0 0 0 1px rgba(67,44,151,.1),0 4px 12px rgba(31,22,40,.08),0 24px 60px rgba(31,22,40,.14); }
     @keyframes heroFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
     .product-frame-bar { background:#f5f3ff; border-bottom:1px solid rgba(67,44,151,.08); padding:.5rem .875rem; display:flex; align-items:center; gap:.75rem; }
     .frame-dots { display:flex; gap:.3rem; }
@@ -525,54 +525,12 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-chip-float">
-          <div class="hcf-label">Setup time</div>
-          <div class="hcf-val">Under 5 minutes</div>
-        </div>
         <div class="product-frame">
           <div class="product-frame-bar">
             <div class="frame-dots"><span class="fd-r"></span><span class="fd-y"></span><span class="fd-g"></span></div>
             <div class="frame-url">app.growprogress.ai/sandbox</div>
           </div>
-          <div class="hero-mockup">
-  <div class="hm-topbar">
-    <div class="hm-title">New Message Test</div>
-    <div class="hm-step-indicator">Step 2 of 3</div>
-  </div>
-  <div class="hm-sandbox-form">
-    <div class="hm-field">
-      <div class="hm-field-label">Message A</div>
-      <div class="hm-textarea hm-ta-filled">
-        "Our community deserves clean air and good jobs, not a choice between the two."
-      </div>
-    </div>
-    <div class="hm-field">
-      <div class="hm-field-label">Message B</div>
-      <div class="hm-textarea hm-ta-filled">
-        "Investing in clean energy means thousands of new jobs for working families in our region."
-      </div>
-    </div>
-    <div class="hm-field">
-      <div class="hm-field-label">Target audience</div>
-      <div class="hm-select">
-        <span>Swing voters, 35–54, Midwest</span>
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5l3 3 3-3" stroke="#9B8FBA" stroke-width="1.25" stroke-linecap="round"/></svg>
-      </div>
-    </div>
-  </div>
-  <div class="hm-sandbox-footer">
-    <div class="hm-run-meta">~1,000 respondents · Results in 24h</div>
-    <div class="hm-run-btn">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polygon points="3,2 10,6 3,10" fill="currentColor"/></svg>
-      Run Test
-    </div>
-  </div>
-</div>
-        </div>
-        <div class="hero-badge">
-          <div class="badge-top"><span class="badge-pulse"></span><span class="badge-status">Test complete</span></div>
-          <div class="badge-num">+12<span> pts</span></div>
-          <div class="badge-lbl">Message A vs. control</div>
+          <img src="PS-screenshot.png" alt="Persuasion Sandbox UI" style="width:100%;display:block;object-fit:cover;object-position:top;max-height:340px;">
         </div>
       </div>
     </div>
@@ -582,57 +540,12 @@
 <!-- WHAT IT IS -->
 <section class="what-section">
   <div class="container">
-    <div class="what-grid">
-
-      <!-- Left copy -->
+    <div style="max-width:680px;margin:0 auto;text-align:center;">
       <div class="reveal">
         <span class="chip chip-purple">What It Is</span>
         <h2 style="font-family:var(--font-h);font-weight:900;font-size:clamp(1.875rem,3vw,2.625rem);letter-spacing:-.025em;line-height:1.1;color:var(--text);margin-top:.875rem;">Self-serve message testing, built for teams that <em style="font-style:normal;color:var(--purple);">move fast.</em></h2>
-        <p class="what-body">The Persuasion Sandbox gives you direct access to Grow Progress's testing infrastructure without full-service setup. Enter your messages, select your audience, and launch. Designed for teams that need directional answers quickly, before committing to a full RMT study.</p>
+        <p class="what-body" style="max-width:580px;margin:0 auto;">The Persuasion Sandbox gives you direct access to Grow Progress's testing infrastructure without full-service setup. Enter your messages, select your audience, and launch. Designed for teams that need directional answers quickly, before committing to a full RMT study.</p>
       </div>
-
-      <!-- Right: CSS app mockup -->
-      <div class="reveal reveal-delay-2">
-        <div class="app-mockup">
-          <div class="app-titlebar">
-            <div class="app-dot app-dot-red"></div>
-            <div class="app-dot app-dot-yellow"></div>
-            <div class="app-dot app-dot-green"></div>
-            <span class="app-title-text">Persuasion Sandbox</span>
-          </div>
-          <div class="app-body">
-            <div class="app-field">
-              <div class="app-label">Message A</div>
-              <textarea class="app-textarea" readonly>Our community deserves clean water and safe streets, not broken promises.</textarea>
-            </div>
-            <div class="app-field">
-              <div class="app-label">Message B</div>
-              <textarea class="app-textarea" readonly>Invest in our families. Invest in our future. Vote for real change this November.</textarea>
-            </div>
-            <div class="app-field">
-              <div class="app-label">Audience</div>
-              <div style="margin-top:.25rem;">
-                <span class="app-dropdown">
-                  General Public
-                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5l3 3 3-3"/></svg>
-                </span>
-              </div>
-            </div>
-            <button class="app-launch-btn">
-              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Launch Test →
-            </button>
-            <div class="app-result">
-              <div>
-                <div class="app-result-label">Winner · Message A</div>
-                <div style="font-size:.8rem;color:#059669;margin-top:.15rem;">Statistically significant</div>
-              </div>
-              <div class="app-result-val">+12 pts</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
