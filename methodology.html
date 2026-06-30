@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Methodology — Grow Progress</title>
+  <meta name="description" content="Grow Progress uses Randomized Controlled Trials — the same design as medical research — to measure whether messages actually change minds. Learn how it works.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#1F1628; --purple:#432C97; --mid:#5B5DC0;
+      --blue:#6C9BFF; --blue-bright:#85B4FF;
+      --lavender:#DCD2FF; --ghost:#F2F2FD; --white:#fff;
+      --text:#1F1628; --muted:#6B5E8A; --faint:#9B8FBA;
+      --shadow-sm:0 1px 3px rgba(31,22,40,.08),0 4px 12px rgba(31,22,40,.06);
+      --shadow-md:0 2px 8px rgba(31,22,40,.1),0 12px 40px rgba(31,22,40,.08);
+      --r-sm:.5rem; --r-md:1rem; --r-lg:1.5rem; --r-xl:2rem;
+      --font-h:'Barlow',sans-serif; --font-b:'Work Sans',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;font-size:16px;}
+    body{font-family:var(--font-b);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    .container{max-width:1120px;margin:0 auto;padding:0 2rem;}
+    .container--narrow{max-width:760px;margin:0 auto;padding:0 2rem;}
+    .section{padding:6rem 0;}
+    .chip{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.375rem .875rem;border-radius:2rem;}
+    .chip-purple{color:var(--purple);background:rgba(67,44,151,.08);border:1px solid rgba(67,44,151,.15);}
+    .chip-light{color:var(--lavender);background:rgba(220,210,255,.1);border:1px solid rgba(220,210,255,.2);}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:.1s;} .reveal-delay-2{transition-delay:.2s;} .reveal-delay-3{transition-delay:.3s;} .reveal-delay-4{transition-delay:.4s;}
+
+    /* ── NAV ── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s;}
+    .nav.scrolled{background:rgba(242,242,253,.95);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(67,44,151,.08);}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;}
+    .nav-gp-logo{height:36px;width:auto;display:block;}
+    .nav-links{display:flex;align-items:center;gap:.125rem;list-style:none;}
+    .nav-links a{padding:.5rem .875rem;font-size:.875rem;color:var(--muted);text-decoration:none;border-radius:var(--r-sm);transition:color .15s,background .15s;}
+    .nav-links a:hover{color:var(--ink);background:rgba(67,44,151,.06);}
+    .has-dropdown{position:relative;}
+    .has-dropdown>a{display:flex;align-items:center;gap:.3rem;}
+    .has-dropdown>a svg{width:12px;height:12px;transition:transform .2s;flex-shrink:0;}
+    .has-dropdown:hover>a svg,.has-dropdown:focus-within>a svg{transform:rotate(180deg);}
+    .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);width:640px;background:#fff;border:1px solid rgba(67,44,151,.1);border-radius:1.25rem;box-shadow:0 8px 40px rgba(31,22,40,.12),0 2px 12px rgba(31,22,40,.06);padding:.75rem 1.25rem 1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:.375rem;opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-8px);transition:opacity .18s ease,transform .18s ease;z-index:200;}
+    .has-dropdown:hover .nav-dropdown,.has-dropdown:focus-within .nav-dropdown{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+    .nav-dd-item{display:flex;align-items:flex-start;gap:.875rem;padding:.875rem;border-radius:.75rem;text-decoration:none;transition:background .15s;}
+    .nav-dd-item:hover{background:rgba(67,44,151,.05);}
+    .nav-dd-icon{width:36px;height:36px;border-radius:.625rem;background:rgba(67,44,151,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .nav-dd-icon svg{width:18px;height:18px;color:#432C97;}
+    .nav-dd-text{display:flex;flex-direction:column;gap:.2rem;}
+    .nav-dd-label{font-family:var(--font-h);font-weight:700;font-size:.875rem;color:#1F1628;line-height:1;}
+    .nav-dd-desc{font-size:.75rem;color:rgba(31,22,40,.45);line-height:1.4;}
+    .nav-dd-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-bottom:.2rem;}
+    .nav-right{display:flex;align-items:center;gap:.75rem;}
+    .nav-signin{font-size:.875rem;color:var(--muted);text-decoration:none;padding:.5rem .875rem;border-radius:var(--r-sm);transition:color .15s;}
+    .nav-signin:hover{color:var(--ink);}
+    .btn-nav{padding:.55rem 1.2rem;background:var(--purple);color:#fff;font-family:var(--font-h);font-weight:700;font-size:.875rem;border-radius:var(--r-sm);text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(67,44,151,.3);}
+    .btn-nav:hover{background:#5038b0;transform:translateY(-1px);}
+    @media(max-width:640px){.nav-links{display:none;}}
+
+    /* ── BUTTONS ── */
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-h);font-weight:700;text-decoration:none;border:none;cursor:pointer;border-radius:var(--r-sm);transition:all .2s;}
+    .btn-primary{padding:.875rem 2rem;font-size:1rem;background:var(--purple);color:#fff;box-shadow:0 4px 20px rgba(67,44,151,.3);}
+    .btn-primary:hover{background:#5038b0;transform:translateY(-2px);}
+    .btn-outline{padding:.875rem 1.75rem;font-size:1rem;background:transparent;color:var(--purple);border:1.5px solid rgba(67,44,151,.25);border-radius:var(--r-sm);}
+    .btn-outline:hover{border-color:var(--purple);background:rgba(67,44,151,.04);}
+    .btn-white{padding:.875rem 2rem;font-size:1rem;background:#fff;color:var(--purple);box-shadow:0 4px 20px rgba(0,0,0,.15);}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2);}
+
+    /* ── HERO ── */
+    .hero{padding:9rem 0 6rem;background:linear-gradient(160deg,#F2F2FD 0%,#fff 60%,#F2F2FD 100%);position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:-10%;left:-5%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(67,44,151,.07) 0%,transparent 70%);pointer-events:none;}
+    .hero-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.8125rem;color:var(--faint);margin-bottom:1.5rem;text-decoration:none;}
+    .hero-breadcrumb:hover{color:var(--muted);}
+    .hero-breadcrumb svg{width:14px;height:14px;}
+    .hero h1{font-family:var(--font-h);font-weight:900;font-size:clamp(2.5rem,5vw,4.25rem);line-height:1.04;letter-spacing:-.035em;color:var(--ink);margin:.875rem 0 1.5rem;max-width:720px;}
+    .hero h1 em{font-style:normal;color:var(--purple);}
+    .hero-sub{font-size:1.125rem;line-height:1.75;color:var(--muted);max-width:600px;margin-bottom:2.5rem;}
+    .hero-meta{display:flex;gap:2.5rem;flex-wrap:wrap;}
+    .hero-stat{display:flex;flex-direction:column;gap:.25rem;}
+    .hero-stat-num{font-family:var(--font-h);font-weight:900;font-size:1.875rem;color:var(--purple);letter-spacing:-.02em;}
+    .hero-stat-lbl{font-size:.8125rem;color:var(--muted);}
+
+    /* ── THE PROBLEM ── */
+    .problem-section{padding:5rem 0;background:var(--ghost);}
+    .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .problem-quote{font-family:var(--font-h);font-size:clamp(1.375rem,2.2vw,1.875rem);font-weight:700;line-height:1.3;color:var(--ink);border-left:4px solid var(--purple);padding-left:1.5rem;}
+    .problem-body{font-size:1.0625rem;line-height:1.75;color:var(--muted);}
+    .problem-body p+p{margin-top:1rem;}
+    @media(max-width:800px){.problem-grid{grid-template-columns:1fr;gap:2.5rem;}}
+
+    /* ── FLOW DIAGRAM ── */
+    .flow-section{padding:5rem 0 3rem;}
+    .flow-diagram{display:flex;align-items:center;gap:0;margin-top:3rem;overflow-x:auto;padding-bottom:1rem;}
+    .flow-node{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;min-width:110px;}
+    .flow-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);}
+    .flow-icon svg{width:22px;height:22px;}
+    .flow-icon--panel{background:rgba(67,44,151,.1);}
+    .flow-icon--panel svg{color:var(--purple);}
+    .flow-icon--split{background:rgba(91,93,192,.1);}
+    .flow-icon--split svg{color:var(--mid);}
+    .flow-icon--control{background:rgba(155,143,186,.12);}
+    .flow-icon--control svg{color:var(--faint);}
+    .flow-icon--test{background:rgba(67,44,151,.15);}
+    .flow-icon--test svg{color:var(--purple);}
+    .flow-icon--survey{background:rgba(108,155,255,.12);}
+    .flow-icon--survey svg{color:var(--blue);}
+    .flow-icon--result{background:rgba(34,197,94,.12);}
+    .flow-icon--result svg{color:#16a34a;}
+    .flow-label{font-family:var(--font-h);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;max-width:90px;line-height:1.3;}
+    .flow-arrow{color:var(--faint);flex-shrink:0;padding:0 .25rem;margin-bottom:1.75rem;}
+    .flow-arrow svg{width:18px;height:18px;}
+
+    /* ── STEPS ── */
+    .steps-section{padding:4rem 0 6rem;}
+    .step{display:grid;grid-template-columns:64px 1fr;gap:2rem;padding:2.5rem 0;border-bottom:1px solid rgba(67,44,151,.07);}
+    .step:last-child{border-bottom:none;}
+    .step-num{font-family:var(--font-h);font-weight:900;font-size:2.5rem;color:var(--lavender);letter-spacing:-.03em;line-height:1;}
+    .step-content{}
+    .step-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:.5rem;}
+    .step-title{font-family:var(--font-h);font-weight:800;font-size:clamp(1.25rem,2vw,1.625rem);letter-spacing:-.02em;color:var(--ink);margin-bottom:.875rem;line-height:1.15;}
+    .step-body{font-size:1rem;line-height:1.75;color:var(--muted);}
+    .step-callout{margin-top:1.25rem;background:var(--ghost);border-left:3px solid var(--purple);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:.875rem 1.125rem;}
+    .step-callout p{font-size:.9rem;color:var(--ink);line-height:1.6;}
+
+    /* ── VS SECTION ── */
+    .vs-section{padding:5rem 0;background:var(--ink);}
+    .vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+    .vs-col{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:2rem;}
+    .vs-col--gp{background:rgba(67,44,151,.25);border-color:rgba(67,44,151,.5);}
+    .vs-col-label{font-family:var(--font-h);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.25rem;}
+    .vs-col--other .vs-col-label{color:rgba(255,255,255,.35);}
+    .vs-col--gp .vs-col-label{color:var(--lavender);}
+    .vs-item{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.875rem;}
+    .vs-item:last-child{margin-bottom:0;}
+    .vs-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:.45em;}
+    .vs-col--other .vs-dot{background:rgba(255,255,255,.2);}
+    .vs-col--gp .vs-dot{background:var(--blue);}
+    .vs-item-text{font-size:.9375rem;line-height:1.5;}
+    .vs-col--other .vs-item-text{color:rgba(255,255,255,.5);}
+    .vs-col--gp .vs-item-text{color:#fff;}
+    .vs-headline{font-family:var(--font-h);font-weight:900;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-.025em;color:#fff;line-height:1.1;}
+    .vs-headline em{font-style:normal;color:var(--blue);}
+    @media(max-width:700px){.vs-grid{grid-template-columns:1fr;}}
+
+    /* ── PROOF STRIP ── */
+    .proof-section{padding:5rem 0;background:var(--ghost);}
+    .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+    .proof-card{background:#fff;border:1px solid rgba(67,44,151,.08);border-radius:var(--r-lg);padding:1.75rem;}
+    .proof-num{font-family:var(--font-h);font-weight:900;font-size:2.5rem;color:var(--purple);letter-spacing:-.03em;margin-bottom:.375rem;}
+    .proof-label{font-size:.9rem;color:var(--muted);line-height:1.5;}
+    @media(max-width:700px){.proof-grid{grid-template-columns:1fr 1fr;} .proof-grid .proof-card:last-child{grid-column:1/-1;}}
+
+    /* ── CTA ── */
+    .cta-section{padding:6rem 0;background:linear-gradient(135deg,var(--purple) 0%,var(--mid) 100%);text-align:center;position:relative;overflow:hidden;}
+    .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(108,155,255,.2) 0%,transparent 60%);pointer-events:none;}
+    .cta-eyebrow{font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1rem;}
+    .cta-h{font-family:var(--font-h);font-weight:900;font-size:clamp(2rem,4vw,3.25rem);letter-spacing:-.03em;color:#fff;margin-bottom:1.25rem;line-height:1.07;}
+    .cta-sub{font-size:1.0625rem;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 2.5rem;line-height:1.7;}
+    .cta-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+
+    /* ── NEWSLETTER ── */
+    .newsletter{background:var(--ghost);padding:4rem 0;border-top:1px solid rgba(67,44,151,.07);}
+    .newsletter-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+    .newsletter-copy h3{font-family:var(--font-h);font-weight:800;font-size:1.25rem;color:var(--ink);margin-bottom:.375rem;}
+    .newsletter-copy p{font-size:.9375rem;color:var(--muted);}
+    .newsletter-form{display:flex;gap:.75rem;flex-wrap:wrap;}
+    .newsletter-form input{padding:.75rem 1.125rem;border:1.5px solid rgba(67,44,151,.2);border-radius:var(--r-sm);font-family:var(--font-b);font-size:.9375rem;color:var(--ink);background:#fff;outline:none;min-width:260px;transition:border-color .2s;}
+    .newsletter-form input:focus{border-color:var(--purple);}
+    .newsletter-form button{padding:.75rem 1.5rem;background:var(--purple);color:#fff;font-family:var(--font-h);font-weight:700;font-size:.875rem;border:none;border-radius:var(--r-sm);cursor:pointer;transition:background .2s;}
+    .newsletter-form button:hover{background:#5038b0;}
+
+    /* ── FOOTER ── */
+    .footer{background:var(--ink);padding:3.5rem 0 2rem;}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+    .footer-brand p{font-size:.875rem;color:rgba(255,255,255,.4);line-height:1.6;margin-top:.875rem;max-width:220px;}
+    .footer-col h4{font-family:var(--font-h);font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem;}
+    .footer-col a{display:block;font-size:.875rem;color:rgba(255,255,255,.55);text-decoration:none;margin-bottom:.5rem;transition:color .15s;}
+    .footer-col a:hover{color:#fff;}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .footer-copy{font-size:.8125rem;color:rgba(255,255,255,.3);}
+    @media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="gp-logo.svg" alt="Grow Progress" class="nav-gp-logo">
+  </a>
+  <ul class="nav-links">
+    <li class="has-dropdown">
+      <a href="#">Platform <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5l3 3 3-3"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="audience-understanding.html" class="nav-dd-item">
+          <div class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+          <div class="nav-dd-text"><div class="nav-dd-label">Audience Understanding</div><div class="nav-dd-desc">Map who's persuadable before you spend</div></div>
+        </a>
+        <a href="rapid-message-testing.html" class="nav-dd-item">
+          <div class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="nav-dd-text"><div class="nav-dd-label">Rapid Message Testing</div><div class="nav-dd-desc">Find what moves people in as little as 24 hours</div></div>
+        </a>
+        <a href="pulse-surveys.html" class="nav-dd-item">
+          <div class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="nav-dd-text"><div class="nav-dd-label">Pulse Surveys</div><div class="nav-dd-desc">Fast reads on breaking moments</div></div>
+        </a>
+        <a href="persuasion-library.html" class="nav-dd-item">
+          <div class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <div class="nav-dd-text"><div class="nav-dd-label">Persuasion Library</div><div class="nav-dd-desc">8,000+ tested messages from across the platform</div></div>
+        </a>
+        <a href="persuasion-sandbox.html" class="nav-dd-item">
+          <div class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="nav-dd-text"><div class="nav-dd-label">Persuasion Sandbox</div><div class="nav-dd-desc">AI-powered message generation and iteration</div></div>
+        </a>
+        <a href="methodology.html" class="nav-dd-item nav-dd-item--method">
+          <div class="nav-dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
+          <div class="nav-dd-text"><div class="nav-dd-eyebrow">Science</div><div class="nav-dd-label">Our Methodology</div><div class="nav-dd-desc">How RCTs actually work</div></div>
+        </a>
+      </div>
+    </li>
+    <li><a href="who-we-serve.html">Who we serve</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="nav-signin">Sign In</a>
+    <a href="demo.html" class="btn-nav">Request a Demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <a href="rapid-message-testing.html" class="hero-breadcrumb reveal">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      Rapid Message Testing
+    </a>
+    <div class="reveal reveal-delay-1">
+      <span class="chip chip-purple">Methodology</span>
+    </div>
+    <h1 class="reveal reveal-delay-2">The science behind<br><em>changing minds.</em></h1>
+    <p class="hero-sub reveal reveal-delay-3">Every Grow Progress result comes from a Randomized Controlled Trial — the same design used to test medicines. Not what people already believe. Not which message gets more clicks. What actually moves them.</p>
+    <div class="hero-meta reveal reveal-delay-4">
+      <div class="hero-stat">
+        <div class="hero-stat-num">200%</div>
+        <div class="hero-stat-lbl">Average increase in message effectiveness</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">24 hrs</div>
+        <div class="hero-stat-lbl">From launch to results</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">8,000+</div>
+        <div class="hero-stat-lbl">Messages tested in the Persuasion Library</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="problem-section">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="reveal">
+        <span class="chip chip-purple" style="margin-bottom:1.5rem;">The Problem</span>
+        <blockquote class="problem-quote">Most research tells you what people think. It can't tell you what will change their minds.</blockquote>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="problem-body">
+          <p>Traditional polling captures a snapshot of existing opinion. A/B tests tell you which message got more clicks from people who were already inclined to engage. Neither answers the question campaigns actually need answered: <em>does this message persuade someone who doesn't already agree with me?</em></p>
+          <p>That distinction matters enormously. A message that performs well with your base can actively backfire with persuadable voters. A frame that tests well in a survey can fail in the field. Without a control group, you can never know the difference between a message that converted someone and an audience that was already converted.</p>
+          <p>Grow Progress was built to answer that question — rigorously, quickly, and at a cost campaigns and nonprofits can actually afford.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW DIAGRAM -->
+<section class="flow-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+      <span class="chip chip-purple">How It Works</span>
+      <h2 style="font-family:var(--font-h);font-weight:900;font-size:clamp(1.875rem,3vw,2.5rem);letter-spacing:-.025em;color:var(--ink);margin:.875rem 0 1rem;line-height:1.1;">An experiment, run at the<br><em style="font-style:normal;color:var(--purple);">speed of a campaign.</em></h2>
+      <p style="font-size:1.0625rem;color:var(--muted);line-height:1.7;">Here is what happens from the moment you launch a study to the moment you see results.</p>
+    </div>
+    <div class="flow-diagram reveal" style="justify-content:center;margin-top:3rem;">
+      <div class="flow-node">
+        <div class="flow-icon flow-icon--panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="flow-label">Representative Panel</div>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="flow-node">
+        <div class="flow-icon flow-icon--split">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3"/><path d="m15 9 6-6"/></svg>
+        </div>
+        <div class="flow-label">Random Assignment</div>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="flow-node">
+        <div class="flow-icon flow-icon--control">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="flow-label">Control Group</div>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="flow-node">
+        <div class="flow-icon flow-icon--test">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7L12 13 2 7"/></svg>
+        </div>
+        <div class="flow-label">Test Group Sees Message</div>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="flow-node">
+        <div class="flow-icon flow-icon--survey">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="flow-label">Identical Survey</div>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="flow-node">
+        <div class="flow-icon flow-icon--result">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="flow-label">Grow Progress Lift Score</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP BY STEP -->
+<section class="steps-section">
+  <div class="container--narrow">
+
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-eyebrow">The Sample</div>
+        <h3 class="step-title">A nationally representative panel, recruited for your study.</h3>
+        <p class="step-body">We field each study with a nationally representative panel of U.S. adults, recruited through a network of high-quality research partners. Demographic quotas ensure the sample reflects the population you care about — whether that's likely voters in a swing state, parents of school-age children, or members of a specific union. You define the audience; we field to it.</p>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-eyebrow">Quality Controls</div>
+        <h3 class="step-title">Every respondent passes the same quality threshold.</h3>
+        <p class="step-body">Low-quality responses are screened out before they reach your data. We apply attention checks, speeder traps, and consistency filters to every study. Respondents who fail are replaced, not averaged in. The result is a clean sample — one you can trust to reflect genuine opinion, not noise.</p>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-eyebrow">Random Assignment</div>
+        <h3 class="step-title">Respondents are randomly split into two groups.</h3>
+        <p class="step-body">Half the sample is assigned to the control group; half to the test group. The assignment is random. This is the foundation of causal inference — it means the two groups are statistically identical before the experiment begins, differing only in what they're about to see.</p>
+        <div class="step-callout">
+          <p><strong>Why this matters:</strong> Without random assignment, you can't isolate the effect of your message. Any difference you observe might be explained by differences between the groups, not by the message itself. Random assignment eliminates that ambiguity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-eyebrow">One Difference</div>
+        <h3 class="step-title">The control group sees neutral content. The test group sees your message.</h3>
+        <p class="step-body">Both groups complete the same survey experience — with one exception. The test group is exposed to your message, ad, mail piece, or script. The control group sees a neutral filler stimulus on an unrelated topic. Everything else — the survey flow, question wording, response options — is identical.</p>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <div class="step-eyebrow">The Success Question</div>
+        <h3 class="step-title">Both groups answer the same question about your issue.</h3>
+        <p class="step-body">After the exposure, both groups are asked the same question — typically a measure of support, favorability, or intended action on your issue. We call this the success question. The difference in responses between the two groups is what we're measuring. The control group gives us the baseline. The test group shows us whether the message moved the needle.</p>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num">06</div>
+      <div class="step-content">
+        <div class="step-eyebrow">Measuring Response</div>
+        <h3 class="step-title">We compare the baseline to the test group's responses.</h3>
+        <p class="step-body">The gap between the control group's answer and the test group's answer is the raw effect of your message. A positive gap means your message moved people in the direction you intended. A negative gap means it backfired. No gap means it had no measurable effect. All three outcomes are valuable — they tell you something different about how your message is landing.</p>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num">07</div>
+      <div class="step-content">
+        <div class="step-eyebrow">Weighting</div>
+        <h3 class="step-title">Results are weighted to reflect your true target population.</h3>
+        <p class="step-body">Survey samples rarely match the real world perfectly. We apply raking weights to align the sample to known population benchmarks — age, gender, race, education, geography, and more. This ensures the lift score you see reflects the actual population you're trying to reach, not an artifact of who happened to respond to your survey.</p>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num">08</div>
+      <div class="step-content">
+        <div class="step-eyebrow">The Lift Score</div>
+        <h3 class="step-title">The gap becomes your Grow Progress Lift — with confidence intervals.</h3>
+        <p class="step-body">The weighted difference between the test and control groups is your Lift score. We report it alongside confidence intervals and statistical significance markers, so you always know how much to trust the result. A lift score without confidence intervals is incomplete; ours show you not just what happened, but how certain we are that it's real.</p>
+        <div class="step-callout">
+          <p><strong>What Lift means in practice:</strong> A +8 point lift means that among people who saw your message, 8 more out of every 100 moved in the direction you intended, compared to people who saw nothing. That's causal movement — not correlation, not engagement, not preference among existing supporters.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-num">09</div>
+      <div class="step-content">
+        <div class="step-eyebrow">Subgroup Analysis</div>
+        <h3 class="step-title">Every study breaks down results across the audiences that matter to you.</h3>
+        <p class="step-body">Overall lift tells you whether a message works on average. Subgroup analysis tells you <em>for whom</em>. Every study includes breakdowns by age, gender, race, education, household income, parental status, party ID, political ideology, geography, and more. A message that generates a +12 lift with persuadable independents may show no effect — or even backlash — among base voters. Knowing the difference is what allows you to target with precision.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GP vs. TRADITIONAL -->
+<section class="vs-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 1rem;">
+      <span class="chip chip-light">Why It Matters</span>
+      <h2 class="vs-headline" style="margin:.875rem 0 .5rem;">Other research tells you<br><em>what people think.</em><br>We tell you what changes their minds.</h2>
+    </div>
+    <div class="vs-grid reveal">
+      <div class="vs-col vs-col--other">
+        <div class="vs-col-label">Traditional polling &amp; A/B tests</div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Measures existing opinion, not persuasion</div></div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">No control group — can't isolate message effect</div></div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Optimizes for engagement with existing audiences</div></div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Results take weeks or months</div></div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Can't tell you if a message backfires with persuadables</div></div>
+      </div>
+      <div class="vs-col vs-col--gp">
+        <div class="vs-col-label">Grow Progress RCTs</div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Measures actual causal persuasion — minds changed</div></div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Randomized control group isolates the message effect</div></div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Finds new audiences — not just better targeting of existing ones</div></div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Results in as little as 24 hours</div></div>
+        <div class="vs-item"><div class="vs-dot"></div><div class="vs-item-text">Detects backlash before you spend on ads</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF STATS -->
+<section class="proof-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:540px;margin:0 auto;">
+      <span class="chip chip-purple">Proof in Days, Not Months</span>
+      <h2 style="font-family:var(--font-h);font-weight:900;font-size:clamp(1.75rem,3vw,2.375rem);letter-spacing:-.025em;color:var(--ink);margin:.875rem 0 .75rem;line-height:1.1;">This is the gold standard of causal measurement, run fast enough to act on.</h2>
+      <p style="font-size:1rem;color:var(--muted);line-height:1.7;">The same methodology that took months and six-figure budgets in an academic setting now takes 24 hours and fits a campaign's budget.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card reveal reveal-delay-1">
+        <div class="proof-num">200%</div>
+        <div class="proof-label">Average increase in message effectiveness for clients who test with Grow Progress before spending on ads</div>
+      </div>
+      <div class="proof-card reveal reveal-delay-2">
+        <div class="proof-num">24 hrs</div>
+        <div class="proof-label">From study launch to full results dashboard — fast enough to act on in a live campaign</div>
+      </div>
+      <div class="proof-card reveal reveal-delay-3">
+        <div class="proof-num">8,000+</div>
+        <div class="proof-label">Messages tested and catalogued in the Persuasion Library — the largest database of what actually persuades people</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container" style="position:relative;z-index:1;">
+    <p class="cta-eyebrow reveal">See it in action</p>
+    <h2 class="cta-h reveal">Ready to test your messages?</h2>
+    <p class="cta-sub reveal">Bring a piece of creative or a draft statement and we'll walk you through exactly what a Grow Progress study would show you.</p>
+    <div class="cta-actions reveal">
+      <a href="demo.html" class="btn btn-white">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Request a Demo
+      </a>
+      <a href="rapid-message-testing.html" class="btn btn-ghost-dark">Learn about Rapid Message Testing</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="newsletter-copy">
+        <h3>Stay in the loop</h3>
+        <p>New research, methodology updates, and persuasion insights — delivered to your inbox.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Your work email">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="gp-logo-white.svg" alt="Grow Progress" style="height:32px;width:auto;">
+        <p>The persuasion platform for causes that need to move people.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="audience-understanding.html">Audience Understanding</a>
+        <a href="rapid-message-testing.html">Rapid Message Testing</a>
+        <a href="pulse-surveys.html">Pulse Surveys</a>
+        <a href="persuasion-library.html">Persuasion Library</a>
+        <a href="persuasion-sandbox.html">Persuasion Sandbox</a>
+        <a href="methodology.html">Our Methodology</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        <a href="insights.html">Insights</a>
+        <a href="demo.html">Request a Demo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="insights.html">Research &amp; Insights</a>
+        <a href="persuasion-library.html">Persuasion Library</a>
+        <a href="methodology.html">Methodology</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Grow Progress. All rights reserved.</span>
+      <span class="footer-copy">Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
