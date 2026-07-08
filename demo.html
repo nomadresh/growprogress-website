@@ -348,84 +348,21 @@
   <!-- RIGHT: Form -->
   <div class="demo-right">
 
-    <!-- Form -->
-    <div id="demoFormWrap">
-      <div class="demo-form-header reveal">
-        <h2>Request your demo</h2>
-        <p>Fill out the form and someone from the Grow Progress team will be in touch within one business day.</p>
-      </div>
-
-      <form class="demo-form reveal reveal-delay-1" id="demoForm" onsubmit="handleSubmit(event)">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="firstName">First name</label>
-            <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Reshma" required autocomplete="given-name">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="lastName">Last name</label>
-            <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Saujani" required autocomplete="family-name">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="email">Work email</label>
-          <input class="form-input" type="email" id="email" name="email" placeholder="you@organization.org" required autocomplete="email">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="org">Organization</label>
-          <input class="form-input" type="text" id="org" name="org" placeholder="Your organization name" required autocomplete="organization">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Organization type</label>
-          <select class="form-input" id="orgType" name="orgType" required>
-            <option value="" disabled selected>Select one…</option>
-            <option value="political">Political Campaign</option>
-            <option value="advocacy">Advocacy Org</option>
-            <option value="nonprofit">Nonprofit</option>
-            <option value="labor">Labor Union</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="useCase">What would you most like to test?</label>
-          <select class="form-input" id="useCase" name="useCase">
-            <option value="" disabled selected>Select one…</option>
-            <option value="fundraising">Fundraising messages</option>
-            <option value="policy">Policy / issue messaging</option>
-            <option value="gotv">Voter turnout / GOTV</option>
-            <option value="ads">Digital or TV ads</option>
-            <option value="email">Email or direct mail</option>
-            <option value="donor">Donor or member communications</option>
-            <option value="other">Something else</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="message">Anything else we should know? <span style="font-weight:400;text-transform:none;letter-spacing:0;opacity:.7">(optional)</span></label>
-          <textarea class="form-input" id="message" name="message" placeholder="Tell us about your upcoming campaign, timeline, or specific questions…"></textarea>
-        </div>
-
-        <button type="submit" class="form-submit">Request my demo →</button>
-        <p class="form-privacy">We'll never share your information. <a href="privacy-policy.html">Privacy Policy</a></p>
-
-      </form>
+    <!-- HubSpot Form -->
+    <div class="demo-form-header reveal">
+      <h2>Request your demo</h2>
+      <p>Fill out the form and someone from the Grow Progress team will be in touch within one business day.</p>
     </div>
-
-    <!-- Success state -->
-    <div class="demo-success" id="demoSuccess">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <h2 class="success-h">You're on the list.</h2>
-      <p class="success-sub">Someone from the Grow Progress team will be in touch within one business day to schedule your demo.</p>
-      <div class="success-links">
-        <a href="insights.html" class="success-link success-link--primary">Read our latest research →</a>
-        <a href="index.html" class="success-link success-link--ghost">Back to home</a>
-      </div>
-    </div>
+    <div id="hubspot-form-wrap" class="reveal reveal-delay-1"></div>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        portalId: "22091444",
+        formId: "e91d9bd5-73b9-454e-8c60-be5fa85937e1",
+        region: "na1",
+        target: "#hubspot-form-wrap"
+      });
+    </script>
 
   </div>
 </div>
