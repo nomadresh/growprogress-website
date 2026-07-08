@@ -158,6 +158,18 @@
     .ps-section{background:var(--white);padding:6rem 0 5rem;}
 
     /* Top: 3 problem pills */
+    /* Challenge ruled list */
+    .challenge-layout{display:grid;grid-template-columns:180px 1fr;gap:0 3rem;margin-bottom:3.5rem;}
+    .challenge-left{border-right:2px solid rgba(67,44,151,.1);padding-right:2rem;padding-top:.25rem;}
+    .challenge-left-label{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);line-height:1.6;}
+    .challenge-problems{display:flex;flex-direction:column;}
+    .challenge-problem{padding:1.625rem 0;border-bottom:1px solid rgba(67,44,151,.08);}
+    .challenge-problem:first-child{padding-top:0;}
+    .challenge-problem:last-child{border-bottom:none;padding-bottom:0;}
+    .cp-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:.4rem;}
+    .cp-title{font-family:var(--font-h);font-size:1.2rem;font-weight:800;color:var(--text);line-height:1.2;margin-bottom:.45rem;text-wrap:balance;}
+    .cp-body{font-size:.875rem;color:var(--muted);line-height:1.65;max-width:480px;}
+    /* keep old pill classes so nothing else breaks */
     .problem-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3.5rem;}
     .prob-pill{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.875rem;padding:1.75rem 1.5rem;border-radius:var(--r-lg);border:1.5px solid transparent;transition:border-color .2s,box-shadow .2s,transform .2s;}
     .prob-pill > div{width:100%;}
@@ -184,6 +196,25 @@
     .ps-divider-label{font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);white-space:nowrap;}
 
     /* Comparison grid */
+    /* Diff table */
+    .diff-table{width:100%;}
+    .diff-table-header{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:0;}
+    .diff-col-head{padding:.875rem 1.25rem;font-family:var(--font-h);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;}
+    .diff-col-head--without{background:rgba(31,22,40,.05);color:var(--muted);border-radius:.5rem .5rem 0 0;}
+    .diff-col-head--with{background:var(--purple);color:rgba(255,255,255,.75);border-radius:.5rem .5rem 0 0;}
+    .diff-col-head--with span{color:#fff;}
+    .diff-rows{display:flex;flex-direction:column;gap:2px;}
+    .diff-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+    .diff-cell{padding:1.125rem 1.25rem;font-size:.9rem;line-height:1.55;display:flex;align-items:flex-start;gap:.625rem;}
+    .diff-cell--without{background:rgba(31,22,40,.04);color:var(--muted);}
+    .diff-cell--with{background:rgba(67,44,151,.07);color:var(--ink);font-weight:500;}
+    .diff-row:last-child .diff-cell--without{border-radius:0 0 0 .5rem;}
+    .diff-row:last-child .diff-cell--with{border-radius:0 0 .5rem 0;}
+    .diff-pip{width:16px;height:16px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:.15rem;}
+    .diff-pip--without{background:rgba(31,22,40,.1);}
+    .diff-pip--with{background:rgba(67,44,151,.15);}
+    .diff-pip svg{width:9px;height:9px;}
+    /* keep old compare classes so nothing else breaks */
     .compare-grid{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;align-items:stretch;}
     .compare-col{background:var(--ghost);border-radius:var(--r-xl);padding:2rem 2.25rem;}
     .compare-bad{border:1.5px solid rgba(239,68,68,.12);}
@@ -660,36 +691,26 @@
       <h2 style="max-width:680px;text-wrap:balance;">Member mobilization campaigns rely on gut instinct over messages that have <em>actually been tested.</em></h2>
     </div>
 
-    <!-- 3 Problem pills -->
-    <div class="problem-row">
-      <div class="prob-pill pp-1 reveal reveal-delay-1">
-        <div class="prob-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </div>
-        <div>
-          <div class="prob-label">Misdiagnosis</div>
-          <div class="prob-title">Traditional polling measures opinion, not persuasion</div>
-          <div class="prob-body">Knowing what members already believe doesn't tell you which message will move fence-sitters or win public sympathy when it counts.</div>
-        </div>
+    <!-- Challenge ruled list -->
+    <div class="challenge-layout reveal">
+      <div class="challenge-left">
+        <div class="challenge-left-label">What unions are<br>working around</div>
       </div>
-      <div class="prob-pill pp-2 reveal reveal-delay-2">
-        <div class="prob-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="challenge-problems">
+        <div class="challenge-problem">
+          <div class="cp-label">Misdiagnosis</div>
+          <div class="cp-title">Knowing where support stands isn't the same as knowing how to move it.</div>
+          <div class="cp-body">Traditional polling tells you what members already believe. It doesn't tell you which message will move fence-sitters or win public sympathy when it counts.</div>
         </div>
-        <div>
-          <div class="prob-label">No evidence</div>
-          <div class="prob-title">Gut instinct drives message choice</div>
-          <div class="prob-body">Contract campaigns, organizing drives, and public fights are decided by message discipline, but most unions pick frames by committee.</div>
+        <div class="challenge-problem">
+          <div class="cp-label">No evidence</div>
+          <div class="cp-title">Gut instinct drives message choice.</div>
+          <div class="cp-body">Contract campaigns, organizing drives, and public fights are decided by message discipline, but most unions pick frames by committee.</div>
         </div>
-      </div>
-      <div class="prob-pill pp-3 reveal reveal-delay-3">
-        <div class="prob-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
-        <div>
-          <div class="prob-label">Too late</div>
-          <div class="prob-title">You find out what worked after the campaign ends</div>
-          <div class="prob-body">Post-campaign analysis tells you what happened, not what you should have said. By then, the contract deadline has passed.</div>
+        <div class="challenge-problem">
+          <div class="cp-label">Too late</div>
+          <div class="cp-title">You find out if it worked after the vote.</div>
+          <div class="cp-body">By the time you know your message wasn't landing, the authorization window has closed. There's no second shot.</div>
         </div>
       </div>
     </div>
@@ -701,42 +722,49 @@
       <div class="ps-divider-line" style="background:linear-gradient(90deg,rgba(67,44,151,.05),rgba(67,44,151,.15));"></div>
     </div>
 
-    <!-- Comparison grid -->
-    <div class="compare-grid reveal">
-      <div class="compare-col compare-bad">
-        <div class="compare-header">
-          <div class="compare-icon compare-icon-red">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+    <!-- Diff table -->
+    <div class="diff-table reveal">
+      <div class="diff-table-header">
+        <div class="diff-col-head diff-col-head--without">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><line x1="3.5" y1="3.5" x2="8.5" y2="8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8.5" y1="3.5" x2="3.5" y2="8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Without Grow Progress
+        </div>
+        <div class="diff-col-head diff-col-head--with">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/><polyline points="3.5,6 5.5,8 8.5,4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>With Grow Progress</span>
+        </div>
+      </div>
+      <div class="diff-rows">
+        <div class="diff-row">
+          <div class="diff-cell diff-cell--without">
+            <div class="diff-pip diff-pip--without"><svg viewBox="0 0 9 9" fill="none"><line x1="2" y1="2" x2="7" y2="7" stroke="#9B8FBA" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="2" x2="2" y2="7" stroke="#9B8FBA" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            Get a snapshot of where your support stands, but not how to move it
           </div>
-          <div>
-            <div class="compare-label">Without Grow Progress</div>
-            <div class="compare-sublabel">Instinct-driven · Results unknown</div>
+          <div class="diff-cell diff-cell--with">
+            <div class="diff-pip diff-pip--with"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2.5" stroke="#432C97" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Run a randomized trial to identify the messages that move fence-sitters
           </div>
         </div>
-        <ul class="compare-list">
-          <li>Get a snapshot of where your support stands, but not how to move it</li>
-          <li>Pick a frame because it tested well in the room</li>
-          <li>Find out if it worked after the vote</li>
-        </ul>
-      </div>
-      <div class="compare-divider">
-        <div class="compare-vs">vs</div>
-      </div>
-      <div class="compare-col compare-good">
-        <div class="compare-header">
-          <div class="compare-icon compare-icon-green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="diff-row">
+          <div class="diff-cell diff-cell--without">
+            <div class="diff-pip diff-pip--without"><svg viewBox="0 0 9 9" fill="none"><line x1="2" y1="2" x2="7" y2="7" stroke="#9B8FBA" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="2" x2="2" y2="7" stroke="#9B8FBA" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            Pick a frame because it tested well in the room
           </div>
-          <div>
-            <div class="compare-label">With Grow Progress</div>
-            <div class="compare-sublabel">RCT-powered · Results in 24 hours</div>
+          <div class="diff-cell diff-cell--with">
+            <div class="diff-pip diff-pip--with"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2.5" stroke="#432C97" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Test dignity, economic, solidarity and other messages against each other
           </div>
         </div>
-        <ul class="compare-list">
-          <li>Run a randomized trial to identify the frames that move fence-sitters</li>
-          <li>Test dignity, economic, solidarity and other frames against each other</li>
-          <li>Know the lift before you invest in real-world outreach</li>
-        </ul>
+        <div class="diff-row">
+          <div class="diff-cell diff-cell--without">
+            <div class="diff-pip diff-pip--without"><svg viewBox="0 0 9 9" fill="none"><line x1="2" y1="2" x2="7" y2="7" stroke="#9B8FBA" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="2" x2="2" y2="7" stroke="#9B8FBA" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            Find out if it worked after the vote
+          </div>
+          <div class="diff-cell diff-cell--with">
+            <div class="diff-pip diff-pip--with"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2.5" stroke="#432C97" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Know the lift before you invest in real-world outreach
+          </div>
+        </div>
       </div>
     </div>
 
