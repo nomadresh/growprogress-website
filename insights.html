@@ -93,57 +93,29 @@
     .ins-card--case-study .ins-card-ph-metric{color:#059669;}
     .ins-card--research .ins-card-ph-metric{color:#7c3aed;}
 
-    /* ── CONTENT GRID ── */
-    .content-section{padding:4rem 0 6rem;background:var(--white);}
-    .content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;}
-
-    /* Cards */
-    .ins-card{background:#fff;border:1.5px solid rgba(67,44,151,.09);border-radius:var(--r-xl);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s;cursor:pointer;}
-    .ins-card:hover{border-color:rgba(67,44,151,.22);transform:translateY(-4px);box-shadow:var(--shadow-md);}
-    .ins-card[data-hidden]{display:none;}
-
-    /* Card accent bar */
-    .ins-card-accent{height:4px;width:100%;}
-    .ins-card--blog .ins-card-accent{background:linear-gradient(90deg,#432C97,#6C9BFF);}
-    .ins-card--case-study .ins-card-accent{background:linear-gradient(90deg,#059669,#34d399);}
-    .ins-card--research .ins-card-accent{background:linear-gradient(90deg,#7c3aed,#a78bfa);}
-
-    .ins-card-body{padding:1.5rem 1.5rem 1.25rem;flex:1;display:flex;flex-direction:column;}
-
-    /* Type + date row */
-    .ins-card-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:.875rem;}
-    .ins-card-type{font-family:var(--font-h);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .625rem;border-radius:2rem;}
-    .ins-card--blog .ins-card-type{color:var(--purple);background:rgba(67,44,151,.08);}
-    .ins-card--case-study .ins-card-type{color:#059669;background:rgba(5,150,105,.08);}
-    .ins-card--research .ins-card-type{color:#7c3aed;background:rgba(124,58,237,.08);}
-    .ins-card-date{font-size:.75rem;color:var(--faint);}
-
-    /* Metric callout */
-    .ins-card-metric{font-family:var(--font-h);font-weight:900;font-size:2rem;letter-spacing:-.04em;line-height:1;margin-bottom:.625rem;}
-    .ins-card--blog .ins-card-metric{color:var(--purple);}
-    .ins-card--case-study .ins-card-metric{color:#059669;}
-    .ins-card--research .ins-card-metric{color:#7c3aed;}
-
-    .ins-card-title{font-family:var(--font-h);font-weight:800;font-size:1rem;color:var(--ink);line-height:1.3;margin-bottom:.625rem;}
-    .ins-card-desc{font-size:.875rem;line-height:1.65;color:var(--muted);flex:1;}
-    .ins-card-footer{padding:.875rem 1.5rem;border-top:1px solid rgba(67,44,151,.07);display:flex;align-items:center;justify-content:space-between;}
-    .ins-card-sector{font-size:.72rem;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;}
-    .ins-card-arrow{width:28px;height:28px;border-radius:50%;background:rgba(67,44,151,.07);display:flex;align-items:center;justify-content:center;transition:background .15s,transform .15s;}
-    .ins-card:hover .ins-card-arrow{background:var(--purple);transform:translateX(2px);}
-    .ins-card-arrow svg{width:13px;height:13px;color:var(--purple);}
-    .ins-card:hover .ins-card-arrow svg{color:#fff;}
-
-    /* Posts section wrapper */
-    .posts-section{padding:4rem 0 6rem;background:var(--white);}
-
-    /* Tag pill (used in new cards) */
-    .ins-card-tag{display:inline-block;font-family:var(--font-h);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .625rem;border-radius:2rem;margin-bottom:.875rem;}
-    .ins-tag--blog{color:var(--purple);background:rgba(67,44,151,.08);}
-    .ins-tag--case-study{color:#059669;background:rgba(5,150,105,.08);}
-    .ins-tag--research{color:#7c3aed;background:rgba(124,58,237,.08);}
+    /* ── POSTS LIST ── */
+    .posts-section{padding:3rem 0 6rem;background:var(--white);}
+    .posts-list{max-width:860px;}
+    .post-row{display:flex;align-items:flex-start;gap:2rem;text-decoration:none;padding:2rem 0;border-bottom:1px solid rgba(67,44,151,.1);transition:opacity .15s;}
+    .post-row:hover{opacity:.85;}
+    .post-row[data-hidden]{display:none;}
+    .post-row:first-child{border-top:1px solid rgba(67,44,151,.1);}
+    .post-row-text{flex:1;min-width:0;}
+    .post-row-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.625rem;}
+    .post-tag{font-family:var(--font-h);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:2rem;}
+    .post-tag--blog{color:var(--purple);background:rgba(67,44,151,.08);}
+    .post-tag--case-study{color:#059669;background:rgba(5,150,105,.08);}
+    .post-tag--research{color:#7c3aed;background:rgba(124,58,237,.08);}
+    .post-title{font-family:var(--font-h);font-weight:800;font-size:1.25rem;line-height:1.25;color:var(--ink);margin-bottom:.5rem;transition:color .15s;}
+    .post-row:hover .post-title{color:var(--purple);}
+    .post-excerpt{font-size:.9375rem;line-height:1.65;color:var(--muted);}
+    .post-thumb{flex-shrink:0;width:200px;height:130px;border-radius:.75rem;overflow:hidden;background:var(--ghost);}
+    .post-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    .post-thumb.empty{display:none;}
+    @media(max-width:640px){.post-row{flex-direction:column-reverse;}.post-thumb{width:100%;height:180px;}}
 
     /* Empty state */
-    .no-results{display:none;grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--faint);}
+    .no-results{display:none;padding:4rem 0;color:var(--faint);}
     .no-results.visible{display:block;}
 
     /* ── NEWSLETTER ── */
@@ -353,189 +325,117 @@
 </section>
 
 
-<!-- POSTS GRID -->
+<!-- POSTS LIST -->
 <section class="posts-section">
   <div class="container">
-    <div class="content-grid" id="postsGrid">
+    <div class="posts-list" id="postsList">
 
-      <!-- 1 -->
-      <a href="post-air-turnout.html" class="ins-card ins-card--case-study reveal" data-type="case-study">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--case-study">Case Study</div>
-          <h3 class="ins-card-title">How American Independent Radio Inspired Voter Turnout in the 2024 Election</h3>
-          <p class="ins-card-desc">A local independent radio partnership helped mobilize voters around shared community values — and the results were measurable.</p>
+      <a href="post-air-turnout.html" class="post-row reveal" data-type="case-study">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--case-study">Case Study</span></div>
+          <h3 class="post-title">How American Independent Radio Inspired Voter Turnout in the 2024 Election</h3>
+          <p class="post-excerpt">A local independent radio partnership helped mobilize voters around shared community values — and the results were measurable.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">June 9, 2026</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="American Independent Radio"></div>
       </a>
 
-      <!-- 2 -->
-      <a href="post-clf-climate.html" class="ins-card ins-card--case-study reveal reveal-delay-1" data-type="case-study">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--case-study">Case Study</div>
-          <h3 class="ins-card-title">Conservation Law Foundation: Climate Messaging That Moves New Englanders</h3>
-          <p class="ins-card-desc">CLF's message testing revealed which climate frames resonate most with New England audiences — and which ones backfire.</p>
+      <a href="post-clf-climate.html" class="post-row reveal" data-type="case-study">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--case-study">Case Study</span></div>
+          <h3 class="post-title">Conservation Law Foundation: Climate Messaging That Moves New Englanders</h3>
+          <p class="post-excerpt">CLF's message testing revealed which climate frames resonate most with New England audiences — and which ones backfire.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">May 29, 2026</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="Conservation Law Foundation"></div>
       </a>
 
-      <!-- 3 -->
-      <a href="post-pulse-surveys.html" class="ins-card ins-card--research reveal reveal-delay-2" data-type="research">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--research">Product</div>
-          <h3 class="ins-card-title">Introducing Pulse Surveys</h3>
-          <p class="ins-card-desc">Fast, credible audience research for moments when decisions can't wait for a full study cycle. Here's what Pulse Surveys are and when to use them.</p>
+      <a href="post-pulse-surveys.html" class="post-row reveal" data-type="research">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--research">Product</span></div>
+          <h3 class="post-title">Introducing Pulse Surveys</h3>
+          <p class="post-excerpt">Fast, credible audience research for moments when decisions can't wait for a full study cycle. Here's what Pulse Surveys are and when to use them.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">May 28, 2026</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="Pulse Surveys"></div>
       </a>
 
-      <!-- 4 -->
-      <a href="post-forward-majority.html" class="ins-card ins-card--case-study reveal" data-type="case-study">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--case-study">Case Study</div>
-          <h3 class="ins-card-title">How Forward Majority Helped Flip Four State House Seats</h3>
-          <p class="ins-card-desc">Message testing identified the most persuasive contrast frames in competitive districts — and the results show up on Election Day.</p>
+      <a href="post-forward-majority.html" class="post-row reveal" data-type="case-study">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--case-study">Case Study</span></div>
+          <h3 class="post-title">How Forward Majority Helped Flip Four State House Seats</h3>
+          <p class="post-excerpt">Message testing identified the most persuasive contrast frames in competitive districts — and the results show up on Election Day.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">May 11, 2026</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="Forward Majority"></div>
       </a>
 
-      <!-- 5 -->
-      <a href="post-contrast-messaging.html" class="ins-card ins-card--blog reveal reveal-delay-1" data-type="blog">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--blog">Insights</div>
-          <h3 class="ins-card-title">Contrast, Don't Just Criticize</h3>
-          <p class="ins-card-desc">The evidence is clear: contrast messaging consistently outperforms pure attack messaging. Here's what the research shows about why — and how to apply it.</p>
+      <a href="post-contrast-messaging.html" class="post-row reveal" data-type="blog">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--blog">Insights</span></div>
+          <h3 class="post-title">Contrast, Don't Just Criticize</h3>
+          <p class="post-excerpt">The evidence is clear: contrast messaging consistently outperforms pure attack messaging. Here's what the research shows about why — and how to apply it.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">May 6, 2026</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="Contrast Messaging"></div>
       </a>
 
-      <!-- 6 -->
-      <a href="post-ai-data-centers.html" class="ins-card ins-card--blog reveal reveal-delay-2" data-type="blog">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--blog">Insights</div>
-          <h3 class="ins-card-title">AI Data Centers Audience Research</h3>
-          <p class="ins-card-desc">A national audience study reveals what shapes public opinion on AI data center development — and what concerns drive support or opposition.</p>
+      <a href="post-ai-data-centers.html" class="post-row reveal" data-type="blog">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--blog">Insights</span></div>
+          <h3 class="post-title">AI Data Centers Audience Research</h3>
+          <p class="post-excerpt">A national audience study reveals what shapes public opinion on AI data center development — and what concerns drive support or opposition.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">April 10, 2026</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="AI Data Centers"></div>
       </a>
 
-      <!-- 7 -->
-      <a href="post-ice-research.html" class="ins-card ins-card--case-study reveal" data-type="case-study">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--case-study">Case Study</div>
-          <h3 class="ins-card-title">New Research: Even Trump Voters Are Rethinking ICE</h3>
-          <p class="ins-card-desc">Message testing finds unexpected openness among Trump voters to reconsidering ICE's current enforcement approach — if the message is right.</p>
+      <a href="post-ice-research.html" class="post-row reveal" data-type="case-study">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--case-study">Case Study</span></div>
+          <h3 class="post-title">New Research: Even Trump Voters Are Rethinking ICE</h3>
+          <p class="post-excerpt">Message testing finds unexpected openness among Trump voters to reconsidering ICE's current enforcement approach — if the message is right.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">February 10, 2026</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="ICE Research"></div>
       </a>
 
-      <!-- 8 -->
-      <a href="post-2026-midterm-talking-point-are-our-fundamental-democratic-principles-under-threat-by-authoritarianism.html" class="ins-card ins-card--blog reveal reveal-delay-1" data-type="blog">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--blog">Insights</div>
-          <h3 class="ins-card-title">2026 Midterm: Are Democratic Principles Under Threat by Authoritarianism?</h3>
-          <p class="ins-card-desc">We tested whether democratic principles and authoritarianism resonate as 2026 midterm messages — and found out which audiences they actually move.</p>
+      <a href="post-2026-midterm-talking-point-are-our-fundamental-democratic-principles-under-threat-by-authoritarianism.html" class="post-row reveal" data-type="blog">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--blog">Insights</span></div>
+          <h3 class="post-title">2026 Midterm: Are Our Fundamental Democratic Principles Under Threat by Authoritarianism?</h3>
+          <p class="post-excerpt">We tested whether democratic principles and authoritarianism resonate as 2026 midterm messages — and found out which audiences they actually move.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">January 13, 2026</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="2026 Midterm"></div>
       </a>
 
-      <!-- 9 -->
-      <a href="post-2025-grow-progress-wrapped.html" class="ins-card ins-card--blog reveal reveal-delay-2" data-type="blog">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--blog">Insights</div>
-          <h3 class="ins-card-title">2025 Grow Progress Wrapped</h3>
-          <p class="ins-card-desc">Looking back at a year of persuasion science: the tests, findings, and themes that defined what it takes to change minds in 2025.</p>
+      <a href="post-2025-grow-progress-wrapped.html" class="post-row reveal" data-type="blog">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--blog">Insights</span></div>
+          <h3 class="post-title">2025 Grow Progress Wrapped</h3>
+          <p class="post-excerpt">Looking back at a year of persuasion science: the tests, findings, and themes that defined what it takes to change minds in 2025.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">December 17, 2025</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="2025 Wrapped"></div>
       </a>
 
-      <!-- 10 -->
-      <a href="post-pre-testing-for-skippable-video-platforms.html" class="ins-card ins-card--research reveal" data-type="research">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--research">Product</div>
-          <h3 class="ins-card-title">Pre-testing for Skippable Video Platforms</h3>
-          <p class="ins-card-desc">Why pre-testing your video ads matters more on skippable platforms — and how to do it before you commit your budget.</p>
+      <a href="post-pre-testing-for-skippable-video-platforms.html" class="post-row reveal" data-type="research">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--research">Product</span></div>
+          <h3 class="post-title">Pre-testing for Skippable Video Platforms</h3>
+          <p class="post-excerpt">Why pre-testing your video ads matters more on skippable platforms — and how to do it before you commit your budget.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">October 30, 2025</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="Skippable Video"></div>
       </a>
 
-      <!-- 11 -->
-      <a href="post-brady-united-challenge-trumps-tough-on-crime-rhetoric.html" class="ins-card ins-card--case-study reveal reveal-delay-1" data-type="case-study">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--case-study">Case Study</div>
-          <h3 class="ins-card-title">Brady United Challenges Trump's "Tough on Crime" Rhetoric</h3>
-          <p class="ins-card-desc">Message testing helped Brady United identify the frames that best counter the tough-on-crime narrative when talking about gun violence prevention.</p>
+      <a href="post-brady-united-challenge-trumps-tough-on-crime-rhetoric.html" class="post-row reveal" data-type="case-study">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--case-study">Case Study</span></div>
+          <h3 class="post-title">Brady United Challenges Trump's "Tough on Crime" Rhetoric</h3>
+          <p class="post-excerpt">Message testing helped Brady United identify the frames that best counter the tough-on-crime narrative when talking about gun violence prevention.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">October 30, 2025</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="Brady United"></div>
       </a>
 
-      <!-- 12 -->
-      <a href="post-congress-shutdown.html" class="ins-card ins-card--blog reveal reveal-delay-2" data-type="blog">
-        <div class="ins-card-body">
-          <div class="ins-card-tag ins-tag--blog">Insights</div>
-          <h3 class="ins-card-title">Health Care and Education Messages Win in the Shutdown Debate</h3>
-          <p class="ins-card-desc">In a government shutdown debate, health care and education messages prove the most persuasive across partisan lines — here's what the data showed.</p>
+      <a href="post-congress-shutdown.html" class="post-row reveal" data-type="blog">
+        <div class="post-row-text">
+          <div class="post-row-meta"><span class="post-tag post-tag--blog">Insights</span></div>
+          <h3 class="post-title">Health Care and Education Messages Win in the Shutdown Debate</h3>
+          <p class="post-excerpt">In a government shutdown debate, health care and education messages prove the most persuasive across partisan lines — here's what the data showed.</p>
         </div>
-        <div class="ins-card-footer">
-          <span class="ins-card-date">September 23, 2025</span>
-          <span class="ins-card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
+        <div class="post-thumb empty"><img src="" alt="Congress Shutdown"></div>
       </a>
 
       <p class="no-results" id="noResults">No results for this filter.</p>
@@ -629,28 +529,21 @@
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   // Filter logic
-  const cards = document.querySelectorAll('.ins-card');
+  const cards = document.querySelectorAll('.post-row');
   const btns  = document.querySelectorAll('.filter-btn');
   const noResults = document.getElementById('noResults');
 
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
-
-      // Toggle active button
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      // Show/hide cards
       let visible = 0;
       cards.forEach(card => {
         const match = filter === 'all' || card.dataset.type === filter;
-        if (match) {
-          card.removeAttribute('data-hidden');
-          visible++;
-        } else {
-          card.setAttribute('data-hidden', '');
-        }
+        if (match) { card.removeAttribute('data-hidden'); visible++; }
+        else { card.setAttribute('data-hidden', ''); }
       });
 
       noResults.classList.toggle('visible', visible === 0);
