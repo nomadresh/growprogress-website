@@ -1321,12 +1321,12 @@
         <div class="hero-float hero-float--top">
           <span class="hero-float-dot"></span>
           <span class="hero-float-label">Top message</span>
-          <span class="hero-float-val" id="float-top-val">+21 pts lift</span>
+          <span class="hero-float-val" id="float-top-val">+8 pts lift</span>
         </div>
         <div class="hero-float hero-float--bot">
           <span class="hero-float-dot"></span>
           <span class="hero-float-label">Audience</span>
-          <span class="hero-float-val" id="float-bot-val">Sample size: 1,200 donors</span>
+          <span class="hero-float-val" id="float-bot-val">Sample size: 1,200</span>
         </div>
         <div class="results-panel">
           <div class="sector-tabs" id="sectorTabs">
@@ -1338,23 +1338,23 @@
           <div class="panel-content" id="panelContent">
             <div class="rp-header">
               <div>
-                <div class="rp-eyebrow" id="rp-eyebrow">Fundraising Appeal · Sample: 1,200</div>
+                <div class="rp-eyebrow" id="rp-eyebrow">Fundraising Appeal</div>
                 <div class="rp-question" id="rp-question">Which message inspires first-time donors?</div>
               </div>
-              <div class="sig-badge"><span class="sig-dot"></span>Significant</div>
+              <div class="sig-badge" id="sig-badge"><span class="sig-dot"></span>Significant · 95% CI</div>
             </div>
             <div class="rp-results">
               <div class="result-item">
                 <div class="result-meta">
-                  <div class="result-left"><div class="result-rank rank-1">1</div><span class="result-label" id="frame-a">Donor impact story</span></div>
-                  <span class="result-pct pct-win" id="pct-a">+21 pts</span>
+                  <div class="result-left"><div class="result-rank rank-1">1</div><span class="result-label" id="frame-a">Your Gift Saves Lives</span></div>
+                  <span class="result-pct pct-win" id="pct-a">+8 pts</span>
                 </div>
                 <div class="bar-track"><div class="bar-fill bar-win" id="bar-a"></div></div>
               </div>
               <div class="result-item">
                 <div class="result-meta">
-                  <div class="result-left"><div class="result-rank rank-2">2</div><span class="result-label" id="frame-b">Community outcomes</span></div>
-                  <span class="result-pct pct-mid" id="pct-b">+8 pts</span>
+                  <div class="result-left"><div class="result-rank rank-2">2</div><span class="result-label" id="frame-b">Stronger Together</span></div>
+                  <span class="result-pct pct-mid" id="pct-b">+3 pts</span>
                 </div>
                 <div class="bar-track"><div class="bar-fill bar-mid" id="bar-b"></div></div>
               </div>
@@ -1368,7 +1368,7 @@
             </div>
             <div class="rp-insight">
               <span class="rp-insight-icon">💡</span>
-              <p class="rp-insight-body" id="rp-insight"><strong>Strategist note:</strong> The donor impact story drove strongest lift among 35–54 lapsed donors, recommend leading with this frame in reactivation emails.</p>
+              <p class="rp-insight-body" id="rp-insight"><strong>Strategist note:</strong> "Your Gift Saves Lives" drove strongest lift among women 18–34. Recommend leading with this frame in digital acquisition.</p>
             </div>
           </div>
         </div>
@@ -1892,10 +1892,10 @@
 <script>
   /* ── Hero rotating panel ── */
   const sectors = [
-    { tab:'Nonprofits', eyebrow:'Fundraising Appeal · Sample: 1,200', question:'Which message inspires first-time donors?', frameA:'Donor impact story', pctA:'+21 pts', wA:'86%', frameB:'Community outcomes', pctB:'+8 pts', wB:'44%', frameC:'Control', pctC:',', wC:'22%', insight:'<strong>Strategist note:</strong> The donor impact story drove strongest lift among 35–54 lapsed donors, recommend leading with this frame in reactivation emails.', floatTop:'+21 pts lift', floatBot:'Sample size: 1,200 donors' },
-    { tab:'Advocacy',   eyebrow:'Policy Campaign · Sample: 1,400',    question:'What moves undecided voters on housing?',    frameA:'Values frame',        pctA:'+17 pts', wA:'78%', frameB:'Urgency frame',      pctB:'+5 pts',  wB:'38%', frameC:'Control', pctC:',', wC:'25%', insight:'<strong>Strategist note:</strong> Values frame outperformed among suburban independents by 22 pts. Urgency framing showed backlash among 55+ audiences, avoid in that segment.', floatTop:'+17 pts lift', floatBot:'Sample size: 1,400 voters' },
-    { tab:'Campaigns',  eyebrow:'Voter Outreach · Sample: 1,600',     question:'Which message drives early vote intent?',    frameA:'Personal story',      pctA:'+18 pts', wA:'82%', frameB:'Economic impact',    pctB:'+6 pts',  wB:'41%', frameC:'Control', pctC:',', wC:'28%', insight:'<strong>Strategist note:</strong> Personal story frame overperformed with women 45–64 by 27 pts. Recommend prioritising in pre-roll targeting for that segment.', floatTop:'+18 pts lift', floatBot:'Sample size: 1,600 voters' },
-    { tab:'Labor',      eyebrow:'Member Mobilization · Sample: 1,100', question:'Which message increases contract campaign support?', frameA:'Dignity & respect',   pctA:'+24 pts', wA:'89%', frameB:'Wages & benefits',   pctB:'+11 pts', wB:'56%', frameC:'Control', pctC:',', wC:'27%', insight:'<strong>Strategist note:</strong> Dignity framing outperformed wages messaging across all age cohorts. Especially strong among members who joined in the last 2 years.', floatTop:'+24 pts lift', floatBot:'Sample size: 1,100 members' }
+    { tab:'Nonprofits', eyebrow:'Fundraising Appeal', question:'Which message inspires first-time donors?', frameA:'Your Gift Saves Lives', pctA:'+8 pts', wA:'62%', frameB:'Stronger Together', pctB:'+3 pts', wB:'35%', frameC:'Control', pctC:',', wC:'22%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "Your Gift Saves Lives" drove strongest lift among women 18–34. Recommend leading with this frame in digital acquisition.', floatTop:'+8 pts lift', floatBot:'Sample size: 1,200' },
+    { tab:'Advocacy',   eyebrow:'Policy Campaign',    question:'What moves undecided voters on housing?',  frameA:'A Place to Call Home', pctA:'+9 pts', wA:'68%', frameB:'Fix the System Now', pctB:'+3 pts', wB:'32%', frameC:'Control', pctC:',', wC:'25%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "A Place to Call Home" outperformed among suburban independents. Urgency framing showed backlash among 55+ audiences — avoid in that segment.', floatTop:'+9 pts lift', floatBot:'Sample size: 1,400' },
+    { tab:'Campaigns',  eyebrow:'Voter Outreach',     question:'Which message drives early vote intent?',  frameA:'Your Vote, Our Future', pctA:'+7 pts', wA:'60%', frameB:'Jobs & Costs Are on the Ballot', pctB:'+3 pts', wB:'32%', frameC:'Control', pctC:',', wC:'28%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "Your Vote, Our Future" overperformed with women 35–54 by +12 pts. Recommend prioritising in pre-roll targeting for that segment.', floatTop:'+7 pts lift', floatBot:'Sample size: 1,600' },
+    { tab:'Labor',      eyebrow:'Member Mobilization', question:'Which message increases contract campaign support?', frameA:'Respect in the Workplace', pctA:'+9 pts', wA:'66%', frameB:'Fair Wages for All', pctB:'+4 pts', wB:'38%', frameC:'Control', pctC:',', wC:'27%', sigBadge:'Significant · 99% CI', insight:'<strong>Strategist note:</strong> Respect framing outperformed wages messaging across all age cohorts. Especially strong among members who joined in the last 2 years.', floatTop:'+9 pts lift', floatBot:'Sample size: 1,100' }
   ];
   let heroCurrent = 0, heroTimer = null;
 
@@ -1924,6 +1924,8 @@
       setHTML('rp-insight', s.insight);
       set('float-top-val', s.floatTop);
       set('float-bot-val', s.floatBot);
+      const sigEl = document.getElementById('sig-badge');
+      if (sigEl) setHTML('sig-badge', '<span class="sig-dot"></span>' + s.sigBadge);
       document.querySelectorAll('.sector-tab').forEach((t,i) => {
         if (i === idx) {
           t.classList.add('progress-reset');
