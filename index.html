@@ -306,7 +306,11 @@
     .hero-left-text { text-align:left; display:flex; flex-direction:column; align-items:flex-start; }
     .hero-left-text .hero-h1 { font-size:clamp(2.25rem, 4vw, 3.5rem); }
     .hero-left-text .hero-sub { color:rgba(255,255,255,.92); text-shadow:0 1px 12px rgba(0,0,0,.5); }
-    .hero-left-text .chip-blue { color:#fff; background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.3); text-shadow:0 1px 8px rgba(0,0,0,.4); }
+    .hero-eyebrow-text {
+      font-family:var(--font-h); font-weight:700; font-size:.8125rem;
+      letter-spacing:.08em; text-transform:uppercase;
+      color:rgba(255,255,255,.55);
+    }
     .hero-h1 {
       font-family:var(--font-h); font-weight:900;
       font-size:clamp(3rem,6.5vw,5.25rem);
@@ -327,46 +331,6 @@
 
     /* ── Rotating results panel ── */
     .hero-card-wrap { position:relative; padding:2rem 1.5rem 2rem 1.5rem; }
-
-
-    /* Floating accent chips */
-    .hero-float {
-      position:absolute; z-index:2; pointer-events:none;
-      display:flex; align-items:center; gap:.625rem;
-      padding:.75rem 1.25rem;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.16);
-      border-radius:2rem;
-      backdrop-filter:blur(16px);
-      font-family:var(--font-h); font-weight:700;
-      white-space:nowrap;
-    }
-    .hero-float-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
-    .hero-float-label { font-size:.875rem; letter-spacing:.03em; }
-    .hero-float-val { font-size:1.0625rem; }
-
-    /* Top-right chip, 24hr turnaround */
-    .hero-float--top {
-      top:-1rem; right:-1.25rem;
-      animation:floatBob 5s ease-in-out infinite;
-    }
-    .hero-float--top .hero-float-dot { background:#4ade80; box-shadow:0 0 6px rgba(74,222,128,.6); }
-    .hero-float--top .hero-float-label { color:rgba(255,255,255,.55); }
-    .hero-float--top .hero-float-val { color:#4ade80; }
-
-    /* Bottom-left chip, sample size */
-    .hero-float--bot {
-      bottom:-.5rem; left:-1.25rem;
-      animation:floatBob 6s ease-in-out infinite 1.5s;
-    }
-    .hero-float--bot .hero-float-dot { background:var(--blue); box-shadow:0 0 6px rgba(108,155,255,.5); }
-    .hero-float--bot .hero-float-label { color:rgba(255,255,255,.55); }
-    .hero-float--bot .hero-float-val { color:var(--blue); }
-
-    @keyframes floatBob {
-      0%,100% { transform:translateY(0); }
-      50%      { transform:translateY(-6px); }
-    }
 
     .results-panel {
       background:#fff;
@@ -1296,10 +1260,7 @@
       <!-- Left: headline + CTAs float over the photo -->
       <div class="hero-left-text">
         <div class="hero-eyebrow">
-          <span class="chip chip-blue">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="currentColor"/><circle cx="6" cy="6" r="5.5" stroke="currentColor" stroke-width="1" opacity=".4"/></svg>
-            Persuasion research for campaigns, nonprofits &amp; advocacy
-          </span>
+          <span class="hero-eyebrow-text">Persuasion research for campaigns, nonprofits &amp; advocacy</span>
         </div>
         <h1 class="hero-h1">
           Stop guessing.<br>
@@ -1317,16 +1278,6 @@
 
       <!-- Right: results panel floats on the unified dark canvas -->
       <div class="hero-card-wrap">
-        <div class="hero-float hero-float--top">
-          <span class="hero-float-dot"></span>
-          <span class="hero-float-label">Top message</span>
-          <span class="hero-float-val" id="float-top-val">+8 pts lift</span>
-        </div>
-        <div class="hero-float hero-float--bot">
-          <span class="hero-float-dot"></span>
-          <span class="hero-float-label">Audience</span>
-          <span class="hero-float-val" id="float-bot-val">Sample size: 1,200</span>
-        </div>
         <div class="results-panel">
           <div class="sector-tabs" id="sectorTabs">
             <div class="sector-tab active" data-sector="0">Nonprofits</div>
@@ -1900,10 +1851,10 @@
 <script>
   /* ── Hero rotating panel ── */
   const sectors = [
-    { tab:'Nonprofits', eyebrow:'Fundraising Appeal', question:'Which message inspires first-time donors?', frameA:'Your Gift Saves Lives', pctA:'+8 pts', wA:'62%', frameB:'Stronger Together', pctB:'+3 pts', wB:'35%', frameC:'Control', pctC:',', wC:'22%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "Your Gift Saves Lives" drove strongest lift among women 18–34. Recommend leading with this frame in digital acquisition.', floatTop:'+8 pts lift', floatBot:'Sample size: 1,200' },
-    { tab:'Advocacy',   eyebrow:'Policy Campaign',    question:'What moves undecided voters on housing?',  frameA:'A Place to Call Home', pctA:'+9 pts', wA:'68%', frameB:'Fix the System Now', pctB:'+3 pts', wB:'32%', frameC:'Control', pctC:',', wC:'25%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "A Place to Call Home" outperformed among suburban independents. Urgency framing showed backlash among 55+ audiences — avoid in that segment.', floatTop:'+9 pts lift', floatBot:'Sample size: 1,400' },
-    { tab:'Campaigns',  eyebrow:'Voter Outreach',     question:'Which message drives early vote intent?',  frameA:'Your Vote, Our Future', pctA:'+7 pts', wA:'60%', frameB:'Jobs & Costs Are on the Ballot', pctB:'+3 pts', wB:'32%', frameC:'Control', pctC:',', wC:'28%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "Your Vote, Our Future" overperformed with women 35–54 by +12 pts. Recommend prioritising in pre-roll targeting for that segment.', floatTop:'+7 pts lift', floatBot:'Sample size: 1,600' },
-    { tab:'Labor',      eyebrow:'Member Mobilization', question:'Which message increases contract campaign support?', frameA:'Respect in the Workplace', pctA:'+9 pts', wA:'66%', frameB:'Fair Wages for All', pctB:'+4 pts', wB:'38%', frameC:'Control', pctC:',', wC:'27%', sigBadge:'Significant · 99% CI', insight:'<strong>Strategist note:</strong> Respect framing outperformed wages messaging across all age cohorts. Especially strong among members who joined in the last 2 years.', floatTop:'+9 pts lift', floatBot:'Sample size: 1,100' }
+    { tab:'Nonprofits', eyebrow:'Fundraising Appeal', question:'Which message inspires first-time donors?', frameA:'Your Gift Saves Lives', pctA:'+8 pts', wA:'62%', frameB:'Stronger Together', pctB:'+3 pts', wB:'35%', frameC:'Control', pctC:',', wC:'22%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "Your Gift Saves Lives" drove strongest lift among women 18–34. Recommend leading with this frame in digital acquisition.' },
+    { tab:'Advocacy',   eyebrow:'Policy Campaign',    question:'What moves undecided voters on housing?',  frameA:'A Place to Call Home', pctA:'+9 pts', wA:'68%', frameB:'Fix the System Now', pctB:'+3 pts', wB:'32%', frameC:'Control', pctC:',', wC:'25%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "A Place to Call Home" outperformed among suburban independents. Urgency framing showed backlash among 55+ audiences — avoid in that segment.' },
+    { tab:'Campaigns',  eyebrow:'Voter Outreach',     question:'Which message drives early vote intent?',  frameA:'Your Vote, Our Future', pctA:'+7 pts', wA:'60%', frameB:'Jobs & Costs Are on the Ballot', pctB:'+3 pts', wB:'32%', frameC:'Control', pctC:',', wC:'28%', sigBadge:'Significant · 95% CI', insight:'<strong>Strategist note:</strong> "Your Vote, Our Future" overperformed with women 35–54 by +12 pts. Recommend prioritising in pre-roll targeting for that segment.' },
+    { tab:'Labor',      eyebrow:'Member Mobilization', question:'Which message increases contract campaign support?', frameA:'Respect in the Workplace', pctA:'+9 pts', wA:'66%', frameB:'Fair Wages for All', pctB:'+4 pts', wB:'38%', frameC:'Control', pctC:',', wC:'27%', sigBadge:'Significant · 99% CI', insight:'<strong>Strategist note:</strong> Respect framing outperformed wages messaging across all age cohorts. Especially strong among members who joined in the last 2 years.' }
   ];
   let heroCurrent = 0, heroTimer = null;
 
@@ -1930,8 +1881,6 @@
       set('frame-a', s.frameA); set('frame-b', s.frameB); set('frame-c', s.frameC);
       set('pct-a', s.pctA); set('pct-b', s.pctB); set('pct-c', s.pctC);
       setHTML('rp-insight', s.insight);
-      set('float-top-val', s.floatTop);
-      set('float-bot-val', s.floatBot);
       const sigEl = document.getElementById('sig-badge');
       if (sigEl) setHTML('sig-badge', '<span class="sig-dot"></span>' + s.sigBadge);
       document.querySelectorAll('.sector-tab').forEach((t,i) => {
