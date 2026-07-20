@@ -1,2 +1,5 @@
 # Local Netlify folder
 .netlify
+
+# Personal Claude Code settings (not shared with team)
+.claude/settings.local.json
