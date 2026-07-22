@@ -143,6 +143,10 @@
     .logo-panel-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.75rem 3.5rem;}
     .logo-panel-row img{height:114px;width:auto;max-width:300px;object-fit:contain;opacity:.85;transition:opacity .2s;}
     .logo-panel-row img:hover{opacity:1;}
+    @media(max-width:640px){
+      .logo-panel-row{display:grid;grid-template-columns:repeat(2,1fr);align-items:center;justify-items:center;gap:1.25rem .75rem;}
+      .logo-panel-row img{height:48px;max-width:100%;}
+    }
 
     /* ── SECTION HEADER ── */
     .sh{margin-bottom:3.5rem;}

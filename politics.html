@@ -141,6 +141,10 @@
     .logo-panel-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.75rem 3.5rem;}
     .logo-panel-row img{height:114px;width:auto;max-width:300px;object-fit:contain;opacity:.85;transition:opacity .2s;}
     .logo-panel-row img:hover{opacity:1;}
+    @media(max-width:640px){
+      .logo-panel-row{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;justify-items:center;gap:1.25rem .75rem;}
+      .logo-panel-row img{height:48px;max-width:100%;}
+    }
     .logo-text{font-family:var(--font-h);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);opacity:.4;transition:opacity .2s;white-space:nowrap;}
 
     /* ── LOGO STRIP ── */
