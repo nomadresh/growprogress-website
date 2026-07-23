@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Values-Based Organizing: United Steelworkers Learned How to Truly Meet Workers Where They Are, Grow Progress</title>
-  <meta name="description" content="How the United Steelworkers used Audience Understanding Surveys and Rapid Message Tests to discover that nostalgia-based messaging was the key to persuading neutral workers.">
+  <meta name="description" content="How values-based research with Grow Progress made field organizers at United Steelworkers more effective at persuading workers towards unionization.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -68,8 +68,6 @@
     .post-hero::after{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(108,155,255,.12) 0%,transparent 65%);pointer-events:none;}
     .post-hero-inner{position:relative;z-index:1;max-width:760px;}
     .post-type-chip{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border-radius:2rem;margin-bottom:1.25rem;}
-    .post-type-chip--case-study{background:#d1fae5;color:#065f46;}
-    .post-type-chip--blog{background:#ede9fe;color:#4c1d95;}
     .post-type-chip--research{background:#e0e7ff;color:#3730a3;}
     .post-h1{font-family:var(--font-h);font-weight:900;font-size:clamp(1.875rem,4vw,2.875rem);letter-spacing:-.03em;line-height:1.1;color:var(--ink);margin-bottom:1.125rem;}
     .post-subhead{font-size:1.0625rem;line-height:1.7;color:var(--muted);max-width:640px;margin-bottom:2rem;}
@@ -96,27 +94,28 @@
     .post-body h2{font-family:var(--font-h);font-weight:800;font-size:1.5rem;color:var(--ink);margin:2.5rem 0 .875rem;letter-spacing:-.02em;}
     .post-body p{margin-bottom:1.25rem;}
     .post-body blockquote{border-left:3px solid var(--purple);padding:1rem 1.5rem;margin:2rem 0;background:rgba(67,44,151,.04);border-radius:0 .75rem .75rem 0;font-family:var(--font-h);font-weight:700;font-size:1.125rem;color:var(--purple);font-style:italic;line-height:1.5;}
+    .post-body ul{padding-left:1.5rem;margin-bottom:1.25rem;}
     .post-body ol{padding-left:1.5rem;margin-bottom:1.25rem;}
     .post-body li{margin-bottom:.5rem;}
 
-    /* Key stats callout, green tinted for case-study */
-    .key-stats-callout{background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(52,211,153,.04));border:1.5px solid rgba(16,185,129,.2);border-radius:1rem;padding:1.5rem 1.75rem;margin:2.25rem 0;}
-    .key-stats-callout-label{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#065f46;margin-bottom:1rem;}
-    .key-stats-list{list-style:none;display:flex;flex-direction:column;gap:.75rem;}
-    .key-stats-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;line-height:1.6;color:#1F1628;}
-    .key-stats-list li::before{content:'';display:block;width:7px;height:7px;border-radius:50%;background:#10b981;flex-shrink:0;margin-top:.55rem;}
+    /* Key stats callout */
+    .key-stats-callout{background:linear-gradient(135deg,rgba(55,48,163,.06),rgba(91,93,192,.04));border:1.5px solid rgba(55,48,163,.15);border-radius:1rem;padding:1.5rem 1.75rem;margin:2rem 0;}
+    .key-stats-callout-label{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3730a3;margin-bottom:1rem;}
+    .key-stats-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.75rem;}
+    .key-stats-list li{font-size:.9375rem;line-height:1.6;color:var(--text);padding-left:1.25rem;position:relative;}
+    .key-stats-list li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:#3730a3;opacity:.6;}
 
     /* ── SIDEBAR ── */
     .post-sidebar{position:sticky;top:88px;}
     .sidebar-card{background:var(--ghost);border:1.5px solid rgba(67,44,151,.09);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1.25rem;}
     .sidebar-label{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.875rem;}
-    .sidebar-meta-row{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.125rem;}
-    .sidebar-meta-item{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--muted);}
-    .sidebar-meta-item strong{font-family:var(--font-h);font-weight:700;color:var(--ink);}
-    .sidebar-sector-chip{display:inline-flex;align-items:center;font-family:var(--font-h);font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:#d1fae5;color:#065f46;padding:.25rem .625rem;border-radius:2rem;}
     .sidebar-toc{list-style:none;display:flex;flex-direction:column;gap:.1rem;}
     .sidebar-toc a{display:block;padding:.4rem .5rem;font-size:.875rem;color:var(--muted);text-decoration:none;border-radius:.375rem;transition:color .15s,background .15s;line-height:1.4;}
     .sidebar-toc a:hover{color:var(--purple);background:rgba(67,44,151,.06);}
+    .sidebar-about{display:flex;flex-direction:column;gap:.625rem;}
+    .sidebar-about-row{display:flex;flex-direction:column;gap:.2rem;}
+    .sidebar-about-key{font-family:var(--font-h);font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);}
+    .sidebar-about-val{font-size:.875rem;color:var(--ink);font-weight:500;}
     .sidebar-cta{background:linear-gradient(135deg,var(--purple),var(--mid));border-radius:var(--r-lg);padding:1.375rem;text-align:center;}
     .sidebar-cta-h{font-family:var(--font-h);font-weight:800;font-size:1rem;color:#fff;margin-bottom:.375rem;line-height:1.25;}
     .sidebar-cta-sub{font-size:.8125rem;color:rgba(255,255,255,.75);line-height:1.5;margin-bottom:1rem;}
@@ -168,7 +167,7 @@
       .nl-row{grid-template-columns:1fr;}
       .footer-top{grid-template-columns:1fr;}
     }
-  
+
     /* ── MOBILE NAV ── */
     .nav-burger{display:none;background:none;border:none;cursor:pointer;padding:.5rem;color:var(--white);line-height:0;}
     .mobile-nav{position:fixed;inset:0;z-index:9999;visibility:hidden;pointer-events:none;}
@@ -282,7 +281,7 @@
         </a>
       </div>
     </li>
-    <li><a href="insights.html" style="font-weight:600;">Insights</a></li>
+    <li><a href="insights.html" style="font-weight:600;" class="active">Insights</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
   <div class="nav-right">
@@ -336,14 +335,20 @@
 <section class="post-hero">
   <div class="container">
     <div class="post-hero-inner reveal">
-      <div class="post-type-chip post-type-chip--case-study">Case Study</div>
+      <div class="post-type-chip post-type-chip--research">Case Study</div>
       <h1 class="post-h1">Values-Based Organizing: United Steelworkers Learned How to Truly Meet Workers Where They Are</h1>
+      <p class="post-subhead">How values-based research with Grow Progress made field organizers at United Steelworkers more effective at persuading workers towards unionization</p>
+      <div class="post-author-row">
+        <div class="author-meta">
+          March 27, 2025<span class="author-meta-sep">·</span>Client Spotlight
+        </div>
       </div>
     </div>
     <!-- Cover -->
     <div class="post-cover-wrap reveal reveal-delay-1">
       <div class="post-cover">
-        <div class="ins-card-cover--placeholder">Organizing</div>
+        <img src="" alt="">
+        <div class="ins-card-cover--placeholder">USW</div>
       </div>
     </div>
   </div>
@@ -361,62 +366,62 @@
         <div class="key-stats-callout">
           <div class="key-stats-callout-label">Key Findings</div>
           <ul class="key-stats-list">
-            <li>42% of blue collar workers surveyed said they would remain neutral if their coworkers started unionization efforts</li>
-            <li>Audience Understanding Survey included almost 80 value-based questions</li>
-            <li>Most effective message spoke to nostalgia, unions as a path back to the "good old days"</li>
-            <li>Organizers completed the same values survey as respondents to understand the values gap with neutral workers</li>
+            <li>42% of blue-collar workers said they would remain neutral if their coworkers started unionization efforts</li>
+            <li>The neutral group's values centered on patriotism, tradition, and a sense that "things were better in the good old days"</li>
+            <li>The most effective message framed unions through nostalgia, financial security, and worker dignity</li>
+            <li>Having organizers complete the same values survey as workers generated the buy-in needed to shift their messaging tactics</li>
           </ul>
         </div>
 
         <p>For over 80 years, the United Steelworkers (USW) have been a powerful force in the fight for fair wages, better labor practices, and workplace safety. They've championed workers across industries like steel, paper, forestry, manufacturing, and mining.</p>
 
-<p>As they continue to battle both sentiments of anti-union and union ambivalence, USW had to ask themselves: Were their tried-and-true messaging tactics still as effective as they once were? Could they learn more about the neutral middle and persuade them to become union promoters?</p>
+        <p>As they continue to battle both sentiments of anti-union and union ambivalence, USW had to ask themselves: Were their tried-and-true messaging tactics still as effective as they once were? Could they learn more about the neutral middle and persuade them to become union promoters?</p>
 
-<p>They partnered with Grow Progress and used the Grow Progress suite of tools to find out.</p>
+        <p>They partnered with Grow Progress and used the Grow Progress suite of tools to find out.</p>
 
-<h2 id="understanding-audience">Understanding Their Audience</h2>
+        <h2 id="understanding-their-audience">Understanding Their Audience</h2>
 
-<p>Grow Progress ran an Audience Understanding Survey (AUS) to better understand the attitudes, values, and beliefs of blue collar workers across the U.S when it comes to unions. An Audience Understanding Survey with Grow Progress prompts respondents to answer not only standard demographic information, but also almost 80 value-based questions. Respondents then answered a series of open-ended questions about unionization and provided written responses in their own words.</p>
+        <p>Grow Progress ran an Audience Understanding Survey (AUS) to better understand the attitudes, values, and beliefs of blue collar workers across the U.S when it comes to unions. An Audience Understanding Survey with Grow Progress prompts respondents to answer not only standard demographic information, but also almost 80 value-based questions. Respondents then answered a series of open-ended questions about unionization and provided written responses in their own words.</p>
 
-<p>The Audience Understanding Survey results highlighted that <em>42% of their audience said they would remain neutral if their coworkers started unionization efforts.</em> When the USW team dug further into the worldviews of this neutral group, they discovered values like patriotism, tradition and a sense that "things were better in the good old days."</p>
+        <div style="margin:2rem auto;max-width:800px;"><img src="https://growprogress.ai/wp-content/uploads/1970/01/gp_chart_2-1024x489.webp" alt="Audience Understanding Survey chart showing values breakdown of blue-collar workers" style="width:100%;border-radius:.5rem;"></div>
 
-<h2 id="crafting-messages">Crafting and Testing Their Messages</h2>
+        <p>The Audience Understanding Survey results highlighted that <em>42% of their audience said they would remain neutral if their coworkers started unionization efforts.</em> When the USW team dug further into the worldviews of this neutral group, they discovered values like patriotism, tradition and a sense that "things were better in the good old days."</p>
 
-<p>With the knowledge of what values to speak to when trying to persuade this neutral group, they used Grow Progress' Persuasion Sandbox, a tool designed to craft compelling messages based on your indicated values and persuasion mechanisms, using the power of generative AI.</p>
+        <h2 id="crafting-and-testing-messages">Crafting and Testing Their Messages</h2>
 
-<p>USW then ran Rapid Message Tests (RMTs) to determine which messages were most effective at moving people from a negative or neutral stance about unionization towards a supportive one. They found one message was most effective: a message that spoke to nostalgia; the idea of unions being a way to get back to the "good old days" and ensure financial security and dignity for everyday people.</p>
+        <p>With the knowledge of what values to speak to when trying to persuade this neutral group, they used Grow Progress' Persuasion Sandbox, a tool designed to craft compelling messages based on your indicated values and persuasion mechanisms, using the power of generative AI.</p>
 
-<h2 id="organizer-buy-in">Bringing Organizers on Board</h2>
+        <p>USW then ran Rapid Message Tests (RMTs) to determine which messages were most effective at moving people from a negative or neutral stance about unionization towards a supportive one. They found one message was most effective: a message that spoke to nostalgia; the idea of unions being a way to get back to the "good old days" and ensure financial security and dignity for everyday people.</p>
 
-<p>The next step for the United Steelworkers team was to get buy-in from their Field Organizers to then incorporate these messages into their conversations with workers.</p>
+        <div style="margin:2rem auto;max-width:800px;"><img src="https://growprogress.ai/wp-content/uploads/2026/05/Screenshot-2026-05-28-at-9.01.43-AM.webp" alt="Rapid Message Test results showing the most effective union messaging" style="width:100%;border-radius:.5rem;"></div>
 
-<p>Yet, USW found that just simply sharing the results of their test didn't go far enough to get Organizers to understand the true effectiveness of speaking to someone's values – especially when that person's values are different from your own. While the Rapid Message Test showed what worked, it wasn't enough to present the findings to their Organizers; the Organizers needed to believe in the approach themselves.</p>
+        <h2 id="bringing-organizers-on-board">Bringing Organizers on Board</h2>
 
-<p>To overcome this hurdle, the USW team tried something innovative. They had their Field Organizers answer the same set of values-based questions that respondents answered in an Audience Understanding Survey. The USW team showed the Organizers the difference between how they answered the values-based questions and how the neutral group of respondents answered them to drive home the idea.</p>
+        <p>The next step for the United Steelworkers team was to get buy-in from their Field Organizers to then incorporate these messages into their conversations with workers.</p>
 
-<p>Aha,the lightbulb flickered on for many organizers. Suddenly, the reasoning behind the new messaging clicked, and organizers felt more willing to change their tactics.</p>
+        <p>Yet, USW found that just simply sharing the results of their test didn't go far enough to get Organizers to understand the true effectiveness of speaking to someone's values – especially when that person's values are different from your own. While the Rapid Message Test showed what worked, it wasn't enough to present the findings to their Organizers; the Organizers needed to believe in the approach themselves.</p>
 
-<h2 id="messaging-impact">Messaging That Makes a Difference</h2>
+        <p>To overcome this hurdle, the USW team tried something innovative. They had their Field Organizers answer the same set of values-based questions that respondents answered in an Audience Understanding Survey. The USW team showed the Organizers the difference between how they answered the values-based questions and how the neutral group of respondents answered them to drive home the idea.</p>
 
-<p>This messaging shift had an immediate impact: As soon as the organizers put this concept to the test, they were better able to bridge the gap with workers. In one instance, after winning a decertification election (where workers vote on whether to remove a union), an organizer coached pro-union workers on how to respond to anti-union coworkers.</p>
+        <p>Aha—the lightbulb flickered on for many organizers. Suddenly, the reasoning behind the new messaging clicked, and organizers felt more willing to change their tactics.</p>
 
-<p>The next day, a younger pro-union worker used one of the new talking points, saying, <em>"For me, there's nothing more American than being able to vote for things. That's what we did yesterday, and that's democracy, and we voted for the union."</em> The anti-union worker, who had started the decertification effort, had no response,he simply walked away.</p>
+        <h2 id="messaging-that-makes-a-difference">Messaging That Makes a Difference</h2>
 
-<p>In another case, workers were nervous about talking to their pro-Trump coworkers about unions. An organizer reassured them by framing union voting as a core American value: <em>"Voting for a union is as American as apple pie. This country was built on voting."</em> That simple reframing gave workers the confidence to start having those crucial conversations.</p>
+        <p>This messaging shift had an immediate impact: As soon as the organizers put this concept to the test, they were better able to bridge the gap with workers. In one instance, after winning a decertification election (where workers vote on whether to remove a union), an organizer coached pro-union workers on how to respond to anti-union coworkers.</p>
 
-<h2 id="takeaway">The Takeaway</h2>
+        <p>The next day, a younger pro-union worker used one of the new talking points, saying, <em>"For me, there's nothing more American than being able to vote for things. That's what we did yesterday, and that's democracy, and we voted for the union."</em> The anti-union worker, who had started the decertification effort, had no response—he simply walked away.</p>
 
-<blockquote>"Grow Progress's tools provided us with information about the general working population's views about unionizing based on questions we asked…being able to test what we specifically we wanted to know,interest in unionizing, as well as interest in active participation in union campaigns,took our understanding a step further."</blockquote>
+        <p>In another case, workers were nervous about talking to their pro-Trump coworkers about unions. An organizer reassured them by framing union voting as a core American value: <em>"Voting for a union is as American as apple pie. This country was built on voting."</em> That simple reframing gave workers the confidence to start having those crucial conversations.</p>
 
-<p>By using a Grow Progress Audience Understanding Survey, USW was able to better understand the values of the people they needed to persuade, develop powerful messages that speak to those values, and help organizers see why that messaging would be effective to share.</p>
+        <h2 id="the-takeaway">The Takeaway</h2>
 
-<p><em>"Grow Progress's tools provided us with information about the general working population's views about unionizing based on questions we asked. We already have access to broader opinions on unionizing from sources like Gallup, but being able to test what we specifically wanted to know,interest in unionizing, as well as interest in active participation in union campaigns,took our understanding a step further.</em></p>
+        <p>By using a Grow Progress Audience Understanding Survey, USW was able to better understand the values of the people they needed to persuade, develop powerful messages that speak to those values, and help organizers see why that messaging would be effective to share.</p>
 
-<p><em>This, coupled with the information of respondents' values, is hopefully a significant step in shaping how our organizers approach workers and helps give them tools about how to tweak their approach in the future."</em></p>
+        <blockquote>"Grow Progress's tools provided us with information about the general working population's views about unionizing based on questions we asked. We already have access to broader opinions on unionizing from sources like Gallup, but being able to test what we specifically wanted to know—interest in unionizing, as well as interest in active participation in union campaigns—took our understanding a step further. This, coupled with the information of respondents' values, is hopefully a significant step in shaping how our organizers approach workers and helps give them tools about how to tweak their approach in the future." — United Steelworkers</blockquote>
 
-<p>United Steelworkers give us a powerful reminder: speaking to values leads to more effective persuasion.</p>
+        <p>United Steelworkers give us a powerful reminder: speaking to values leads to more effective persuasion.</p>
 
-<p><strong>Ready to find the messaging that resonates with your audiences? Learn more about Grow Progress' Audience Understanding Surveys and Rapid Message Tests, and be sure to sign up for our newsletter and never miss a beat.</strong></p>
+        <p>Ready to find the messaging that resonates with your audiences? Learn more about Grow Progress' Audience Understanding Surveys and Rapid Message Tests, and be sure to sign up for our newsletter and never miss a beat.</p>
 
       </article>
 
@@ -424,35 +429,38 @@
       <aside class="post-sidebar reveal reveal-delay-2">
 
         <div class="sidebar-card">
-          <p class="sidebar-label">About this case study</p>
-          <div class="sidebar-meta-row">
-            <div class="sidebar-meta-item">
-              <span>Sector:</span>
-              <span class="sidebar-sector-chip">Labor</span>
-            </div>
-            <div class="sidebar-meta-item">
-              <span>Published:</span>
-              <strong>March 27, 2025</strong>
-            </div>
-          </div>
-          <a href="rapid-message-testing.html" class="sidebar-cta-btn" style="display:block;text-align:center;padding:.65rem 1rem;background:var(--purple);color:#fff;font-family:var(--font-h);font-weight:700;font-size:.875rem;border-radius:.5rem;text-decoration:none;transition:background .15s,transform .15s;">Run your own test →</a>
-        </div>
-
-        <div class="sidebar-card">
-          <p class="sidebar-label">In this case study</p>
+          <p class="sidebar-label">In this post</p>
           <ul class="sidebar-toc">
-            <li><a href="#understanding-audience">Understanding Their Audience</a></li>
-            <li><a href="#crafting-messages">Crafting and Testing Their Messages</a></li>
-            <li><a href="#organizer-buy-in">Bringing Organizers on Board</a></li>
-            <li><a href="#messaging-impact">Messaging That Makes a Difference</a></li>
-            <li><a href="#takeaway">The Takeaway</a></li>
+            <li><a href="#understanding-their-audience">Understanding Their Audience</a></li>
+            <li><a href="#crafting-and-testing-messages">Crafting and Testing Their Messages</a></li>
+            <li><a href="#bringing-organizers-on-board">Bringing Organizers on Board</a></li>
+            <li><a href="#messaging-that-makes-a-difference">Messaging That Makes a Difference</a></li>
+            <li><a href="#the-takeaway">The Takeaway</a></li>
           </ul>
         </div>
 
+        <div class="sidebar-card">
+          <p class="sidebar-label">About this article</p>
+          <div class="sidebar-about">
+            <div class="sidebar-about-row">
+              <span class="sidebar-about-key">Sector</span>
+              <span class="sidebar-about-val">Labor Union</span>
+            </div>
+            <div class="sidebar-about-row">
+              <span class="sidebar-about-key">Published</span>
+              <span class="sidebar-about-val">March 27, 2025</span>
+            </div>
+            <div class="sidebar-about-row">
+              <span class="sidebar-about-key">Type</span>
+              <span class="sidebar-about-val">Case Study</span>
+            </div>
+          </div>
+        </div>
+
         <div class="sidebar-cta">
-          <div class="sidebar-cta-h">Run your own test</div>
-          <div class="sidebar-cta-sub">Discover which messages move your audience, with causal proof in 24 hours.</div>
-          <a href="rapid-message-testing.html" class="sidebar-cta-btn">See how it works →</a>
+          <div class="sidebar-cta-h">Understand your audience</div>
+          <div class="sidebar-cta-sub">Discover the values that drive your target audience and craft messages that truly resonate.</div>
+          <a href="audience-understanding.html" class="sidebar-cta-btn">Learn more →</a>
         </div>
 
       </aside>
