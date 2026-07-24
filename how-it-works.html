@@ -189,8 +189,11 @@
       .tour-layout{grid-template-columns:1fr;}
       .tour-diagram-wrap{display:none;}
       .tour-steps{padding:0 0 4rem;}
+      .tour-step{cursor:default;}
       .tour-step h3,.tour-step.active h3{color:var(--ink);}
       .tour-step p,.tour-step.active p{color:var(--muted);}
+      /* diagrams relocated inline under each step (see layoutTour in JS) */
+      .tour-step .diag{grid-area:auto;position:static;opacity:1;transform:none;pointer-events:auto;margin-top:1.5rem;max-width:460px;}
     }
 
     /* ── PROOF ── */
@@ -858,6 +861,21 @@
   }, { threshold: 0.5, rootMargin: '-25% 0px -25% 0px' });
 
   steps.forEach(s => stepObserver.observe(s));
+
+  // On mobile there's no room for the sticky side panel, so move each diagram
+  // inline under its own step. Desktop keeps the single cross-fading panel.
+  const tourDiagram = document.getElementById('tourDiagram');
+  const tourMq = window.matchMedia('(max-width:860px)');
+  function layoutTour(){
+    steps.forEach(s => {
+      const diag = document.getElementById('diag-' + s.dataset.step);
+      if (!diag) return;
+      if (tourMq.matches) { if (diag.parentElement !== s) s.appendChild(diag); }
+      else if (diag.parentElement !== tourDiagram) { tourDiagram.appendChild(diag); }
+    });
+  }
+  layoutTour();
+  tourMq.addEventListener('change', layoutTour);
 </script>
 </body>
 </html>
